@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Palanquin:wght@400;600&family=Palanquin+Dark:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Ma Vitrine</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Configuration optionnelle (ex: custom colors, fonts) -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Palanquin", "sans-serif"],
+              palanquin: ["Palanquin", "sans-serif"],
+              palanquindark: ['"Palanquin Dark"', "sans-serif"],
+            },
+            colors: {
+              primary: "#1e40af",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="bg-gray-50 text-gray-800 font-sans">
+    <header
+      class="bg-white text-black py-4 px-4 md:px-24 flex justify-between items-center relative"
+    >
+      <!-- logo -->
+      <div class="flex items-center">
+        <img src="logo.png" alt="logo" class="w-10 h-10" />
+        <h1 class="text-2xl font-palanquindark font-semibold">CohaLinkk</h1>
+      </div>
+
+      <!-- menu burger (mobile) -->
+      <button id="menu-burger" class="md:hidden p-2" aria-label="Menu">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"
+          />
+        </svg>
+      </button>
+
+      <!-- menu desktop -->
+      <nav class="hidden md:block">
+        <ul class="flex flex-row gap-4 font-semibold">
+          <li>
+            <a href="#" class="hover:text-blue-700 transition-colors"
+              >Devenir colocataire</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-blue-700 transition-colors"
+              >Devenir propriétaire</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-blue-700 transition-colors"
+              >Partenaires</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-blue-700 transition-colors"
+              >Bêta-testeur</a
+            >
+          </li>
+        </ul>
+      </nav>
+
+      <!-- bouton dl app -->
+      <a
+        href="#"
+        class="hidden md:block bg-blue-700 text-white px-4 py-2 rounded-md hover:bg-blue-800 transition-colors"
+        >Télécharger l'app</a
+      >
+
+      <!-- menu mobile (overlay) -->
+      <div
+        id="menu-mobile"
+        class="fixed inset-0 bg-white z-50 transform translate-x-full transition-transform duration-300 ease-in-out md:hidden"
+      >
+        <div class="p-4 flex flex-col h-full">
+          <div class="flex justify-end">
+            <button id="close-menu" class="p-2" aria-label="Fermer le menu">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+          </div>
+          <nav class="flex-1">
+            <ul class="flex flex-col gap-6 text-xl font-semibold mt-8">
+              <li>
+                <a href="#" class="block hover:text-blue-700 transition-colors"
+                  >Devenir colocataire</a
+                >
+              </li>
+              <li>
+                <a href="#" class="block hover:text-blue-700 transition-colors"
+                  >Devenir propriétaire</a
+                >
+              </li>
+              <li>
+                <a href="#" class="block hover:text-blue-700 transition-colors"
+                  >Partenaires</a
+                >
+              </li>
+              <li>
+                <a href="#" class="block hover:text-blue-700 transition-colors"
+                  >Bêta-testeur</a
+                >
+              </li>
+            </ul>
+          </nav>
+          <a
+            href="#"
+            class="bg-blue-700 text-white px-4 py-2 rounded-md text-center hover:bg-blue-800 transition-colors mt-8"
+            >Télécharger l'app</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <main class="space-y-12">
+      <section class="p-6 mx-auto w-full text-center space-y-4">
+        <h2 class="text-3xl font-semibold text-blue-800 mb-2">
+          Découvrez, rencontrez, échangez, cohabitez
+        </h2>
+        <p class="text-gray-700">
+          Nous faire confiance, c'est partager bien plus qu'un logement, c'est
+          avancer ensemble, en pensant un peu plus à demain.
+        </p>
+        <button class="bg-lime-100 text-black px-4 py-2 rounded-md">
+          Restez informé
+        </button>
+      </section>
+
+      <section class="p-6 mx-auto w-full text-center space-y-4">
+        <h2
+          class="text-4xl font-palanquindark font-semibold text-blue-800 mb-2"
+        >
+          NOS SERVICES
+        </h2>
+        <p class="text-gray-700 font-bold">
+          "Un seul clic pour une colocation qui vous ressemble : bon coloc, bon
+          appart, bon départ."
+        </p>
+      </section>
+
+      <section class="p-6 mx-auto w-full space-y-6">
+        <h2 class="text-3xl font-bold text-blue-800 mb-2 uppercase">
+          <span class="text-gray-700">Devenir</span
+          ><span class="text-blue-800 font-palanquindark"> colocataire</span>
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+          <div>
+            <div class="bg-white p-6 rounded-lg shadow-md space-y-4 h-full">
+              <h3 class="w-full text-xl font-bold text-primary mb-2 text-right">
+                <span class="text-gray-700 font-bold text-5xl">1/4</span> des
+                personnes s'est déjà retrouvée sans logement après avoir
+                réservé, une fois arrivée sur place.
+              </h3>
+              <i data-lucide="users" class="w-6 h-6 text-primary"></i>
+              <p class="text-gray-700 font-bold mt-4">
+                Votre recherche en toute confiance
+              </p>
+              <p class="text-gray-700 text-sm">
+                Annonces vérifiées, profils certifiés, échanges sécurisés: tout
+                est pensé pour que vous puissiez avancer en toute confiance dès
+                le premier clic sur CohaLinkk
+              </p>
+              <div class="flex justify-center mt-4">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-8 w-8 text-blue-700"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="bg-white p-6 rounded-lg shadow-md space-y-4 h-full">
+              <h3 class="w-full text-xl font-bold text-primary mb-2 text-right">
+                <span class="text-gray-700 font-bold text-5xl">83%</span> des
+                bonnes colocations commencent par une vraie compatibilité.
+              </h3>
+              <i data-lucide="users" class="w-6 h-6 text-primary"></i>
+              <p class="text-gray-700 font-bold mt-4">Système de Matching</p>
+              <p class="text-gray-700 text-sm">
+                Grâce à notre système de matching intelligent, basé sur un
+                algorithme avancé, trouvez le colocataire et le logement qui
+                partagent vos valeurs, votre style de vie et vos passions.
+              </p>
+              <div class="flex justify-center mt-4">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-8 w-8 text-blue-700"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="bg-white p-6 rounded-lg shadow-md space-y-4 h-full">
+              <h3 class="w-full text-xl font-bold text-primary mb-2 text-right">
+                Plus de
+                <span class="text-gray-700 font-bold text-5xl">50%</span> des
+                Français rencontrent des difficultés pour se loger.
+              </h3>
+              <i data-lucide="users" class="w-6 h-6 text-primary"></i>
+              <p class="text-gray-700 font-bold mt-4">
+                La colocation accessible à tous, vraiment.
+              </p>
+              <p class="text-gray-700 text-sm">
+                Parcourez les annonces et entrez en contact avec des
+                propriétaires.
+              </p>
+              <div class="flex justify-center mt-4">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-8 w-8 text-blue-700"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="w-full flex justify-center">
+        <section class="w-1/3 h-0.5 bg-gray-400 rounded-lg"></section>
+      </div>
+
+      <section class="p-6 mx-auto w-full space-y-6">
+        <h2 class="text-3xl font-bold text-blue-800 mb-2 uppercase">
+          <span class="text-gray-700">Devenir</span
+          ><span class="text-blue-800 font-palanquindark"> propriétaire</span>
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+          <div>
+            <div class="bg-white p-6 rounded-lg shadow-md space-y-4 h-full">
+              <h3 class="w-full text-xl font-bold text-primary mb-2 text-right">
+                <span class="text-gray-700 font-bold text-5xl">1/4</span> des
+                personnes s'est déjà retrouvée sans logement après avoir
+                réservé, une fois arrivée sur place.
+              </h3>
+              <i data-lucide="users" class="w-6 h-6 text-primary"></i>
+              <p class="text-gray-700 font-bold mt-4">
+                Votre recherche en toute confiance
+              </p>
+              <p class="text-gray-700 text-sm">
+                Annonces vérifiées, profils certifiés, échanges sécurisés: tout
+                est pensé pour que vous puissiez avancer en toute confiance dès
+                le premier clic sur CohaLinkk
+              </p>
+              <div class="flex justify-center mt-4">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-8 w-8 text-blue-700"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="bg-white p-6 rounded-lg shadow-md space-y-4 h-full">
+              <h3 class="w-full text-xl font-bold text-primary mb-2 text-right">
+                <span class="text-gray-700 font-bold text-5xl">83%</span> des
+                bonnes colocations commencent par une vraie compatibilité.
+              </h3>
+              <i data-lucide="users" class="w-6 h-6 text-primary"></i>
+              <p class="text-gray-700 font-bold mt-4">Système de Matching</p>
+              <p class="text-gray-700 text-sm">
+                Grâce à notre système de matching intelligent, basé sur un
+                algorithme avancé, trouvez le colocataire et le logement qui
+                partagent vos valeurs, votre style de vie et vos passions.
+              </p>
+              <div class="flex justify-center mt-4">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-8 w-8 text-blue-700"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="bg-white p-6 rounded-lg shadow-md space-y-4 h-full">
+              <h3 class="w-full text-xl font-bold text-primary mb-2 text-right">
+                Plus de
+                <span class="text-gray-700 font-bold text-5xl">50%</span> des
+                Français rencontrent des difficultés pour se loger.
+              </h3>
+              <i data-lucide="users" class="w-6 h-6 text-primary"></i>
+              <p class="text-gray-700 font-bold mt-4">
+                La colocation accessible à tous, vraiment.
+              </p>
+              <p class="text-gray-700 text-sm">
+                Parcourez les annonces et entrez en contact avec des
+                propriétaires.
+              </p>
+              <div class="flex justify-center mt-4">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-8 w-8 text-blue-700"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- eco section -->
+      <section
+        class="mx-auto py-12 w-full space-y-6 bg-lime-100 flex flex-col items-center justify-center"
+      >
+        <h2 class="md:text-3xl text-2xl font-bold mb-2">
+          Système de récompenses éco
+        </h2>
+        <div class="md:flex md:flex-row">
+          <p>Gagnez des « Feuilles »</p>
+          <span class="mx-2"
+            ><svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22L6.71 19.7C7.12281 19.8632 7.55753 19.9643 8 20C19 20 22 3 22 3C21 5 14 5.25 9 6.25C4 7.25 2 11.5 2 13.5C2.13823 14.9131 2.75576 16.2364 3.75 17.25C7 8 17 8 17 8Z"
+                fill="#11B30F"
+                stroke="#11B30F"
+              />
+            </svg>
+          </span>
+          <p>
+            pour vos actions écoresponsables et échangez-les contre des
+            réductions chez nos partenaires comme TooGoodToGo, ou faites-en don
+            à des ONG.
+          </p>
+        </div>
+        <!-- images carousel -->
+        <div class="flex flex-row space-x-6 overflow-x-auto">
+          <img src="img1.svg" alt="img1" class="w-24 h-24" />
+          <img src="img2.svg" alt="img2" class="w-24 h-24" />
+          <img src="img3.svg" alt="img3" class="w-24 h-24" />
+          <img src="img1.svg" alt="img1" class="w-24 h-24" />
+          <img src="img2.svg" alt="img2" class="w-24 h-24" />
+          <img src="img3.svg" alt="img3" class="w-24 h-24" />
+        </div>
+      </section>
+
+      <!-- Notre histoire section -->
+      <section class="mx-auto p-6 w-full space-y-2">
+        <h2
+          class="text-3xl font-palanquindark font-semibold text-primary mb-2 text-center uppercase"
+        >
+          Notre histoire
+        </h2>
+        <p class="flex flex-row">Tout a commencé lors de nos études....</p>
+        <p>C'est à ce moment là qu'ils ont rencontré Ilan...</p>
+        <p>Ensemble, ils ont crée CohaLinkk, une solution qui transforme....</p>
+
+        <div
+          class="flex md:flex-row flex-col justify-center md:space-x-4 space-y-2"
+        >
+          <div
+            class="flex flex-col bg-white p-6 rounded-lg shadow-md space-y-4 h-full"
+          >
+            <div class="flex flex-row justify-between">
+              <div class="font-bold">
+                <p>Cyrielle FOXONET</p>
+                <p>CO - Fondatrice</p>
+              </div>
+              <img src="img1.svg" alt="leaf" class="w-24 h-24" />
+            </div>
+            <p>
+              Diplômée d'un IAE (Business School publique), j'ai moi-même
+              expérimenté la colocation, je pense qu'une réelle... pendant mes
+              études. Cette expérience ...
+            </p>
+          </div>
+          <div
+            class="flex flex-col bg-white p-6 rounded-lg shadow-md space-y-4 h-full"
+          >
+            <div class="flex flex-row justify-between">
+              <div class="font-bold">
+                <p>Romane FOXONET</p>
+                <p>CO - Fondatrice</p>
+              </div>
+              <img src="img1.svg" alt="leaf" class="w-24 h-24" />
+            </div>
+            <p>
+              Diplômée d'un IAE (Business School publique), j'ai moi-même
+              expérimenté la colocation, je pense qu'une réelle... pendant mes
+              études. Cette expérience ...
+            </p>
+          </div>
+          <div
+            class="flex flex-col bg-white p-6 rounded-lg shadow-md space-y-4 h-full"
+          >
+            <div class="flex flex-row justify-between">
+              <div class="font-bold">
+                <p>Ilan CHEKROUN</p>
+                <p>Directeur technique</p>
+              </div>
+              <img src="img1.svg" alt="leaf" class="w-24 h-24" />
+            </div>
+            <p>
+              Diplômée d'un IAE (Business School publique), j'ai moi-même
+              expérimenté la colocation, je pense qu'une réelle... pendant mes
+              études. Cette expérience ...
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="p-6 mx-auto w-full space-y-2">
+        <h2
+          class="text-3xl font-palanquindark font-semibold text-primary mb-2 text-center uppercase"
+        >
+          Nos partenaires
+        </h2>
+        <div class="flex flex-row space-x-6 mx-auto w-full overflow-x-auto">
+          <img src="img1.svg" alt="img1" class="w-24 h-24" />
+          <img src="img2.svg" alt="img2" class="w-24 h-24" />
+          <img src="img3.svg" alt="img3" class="w-24 h-24" />
+          <img src="img1.svg" alt="img1" class="w-24 h-24" />
+          <img src="img2.svg" alt="img2" class="w-24 h-24" />
+          <img src="img3.svg" alt="img3" class="w-24 h-24" />
+        </div>
+      </section>
+
+      <section class="p-6 mx-auto w-full space-y-2">
+        <h2
+          class="text-3xl font-palanquindark font-semibold text-primary mb-2 text-center uppercase"
+        >
+          Vos expériences en colocation
+        </h2>
+        <div
+          class="flex md:flex-row flex-col justify-center md:space-x-4 space-y-2"
+        >
+          <div
+            class="flex flex-col bg-sky-50 rounded-lg space-y-4 h-full border border-sky-500"
+          >
+            <p class="mt-4 px-4 text-primary font-bold">Experience 1</p>
+            <p class="px-4 text-gray-700">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            </p>
+            <div
+              class="w-full flex flex-row justify-center space-x-4 items-center bg-cyan-950 text-white rounded-b-lg px-4 py-2"
+            >
+              <img src="img1.svg" alt="img1" class="w-12 h-12 rounded-full" />
+              <p>Clément</p>
+              <p class="text-sky-200">• 3 avril 2022</p>
+            </div>
+          </div>
+          <div
+            class="flex flex-col bg-sky-50 rounded-lg space-y-4 h-full border border-sky-500"
+          >
+            <p class="mt-4 px-4 text-primary font-bold">Experience 1</p>
+            <p class="px-4 text-gray-700">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            </p>
+            <div
+              class="w-full flex flex-row justify-center space-x-4 items-center bg-cyan-950 text-white rounded-b-lg px-4 py-2"
+            >
+              <img src="img1.svg" alt="img1" class="w-12 h-12 rounded-full" />
+              <p>Clément</p>
+              <p class="text-sky-200">• 3 avril 2022</p>
+            </div>
+          </div>
+          <div
+            class="flex flex-col bg-sky-50 rounded-lg space-y-4 h-full border border-sky-500"
+          >
+            <p class="mt-4 px-4 text-primary font-bold">Experience 1</p>
+            <p class="px-4 text-gray-700">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            </p>
+            <div
+              class="w-full flex flex-row justify-center space-x-4 items-center bg-cyan-950 text-white rounded-b-lg px-4 py-2"
+            >
+              <img src="img1.svg" alt="img1" class="w-12 h-12 rounded-full" />
+              <p>Clément</p>
+              <p class="text-sky-200">• 3 avril 2022</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact section with "Nous contacter" with text under, form on right of this -->
+      <section
+        class="p-6 mx-auto w-full bg-blue-300 text-white flex md:flex-row flex-col justify-between gap-8"
+      >
+        <div class="md:w-1/2 flex-shrink-0">
+          <h2 class="md:text-6xl text-4xl mb-2">Nous<br />contacter</h2>
+          <p>
+            Futur coloc, propriétaire, partenaire ou ambassadeur auto-proclamé ?
+            Tu es au bon endroit. Laisse nous un petit message (ou un grand
+            pavé, on lit tout)
+          </p>
+          <p>On te répond vite !</p>
+          <p>
+            Et si c'était le début d'une belle collaboration... oups, colocation
+            ? Peu importe le mot : nous, on est partants.
+          </p>
+        </div>
+        <form class="md:w-1/2 flex flex-col space-y-4">
+          <div class="flex md:flex-row gap-4 flex-col">
+            <input
+              type="text"
+              placeholder="Votre nom"
+              class="w-full rounded-lg border border-gray-300 px-4 py-2 text-gray-700"
+            />
+            <input
+              type="text"
+              placeholder="Votre prénom"
+              class="w-full rounded-lg border border-gray-300 px-4 py-2 text-gray-700"
+            />
+          </div>
+          <input
+            type="email"
+            placeholder="Votre email"
+            class="w-full rounded-lg border border-gray-300 px-4 py-2 text-gray-700"
+          />
+          <div class="flex flex-row gap-4">
+            <input
+              type="checkbox"
+              class="w-fit rounded-lg border border-gray-300"
+            />
+            <label> S'inscrire à la newsletter </label>
+          </div>
+          <textarea
+            placeholder="Votre message"
+            class="w-full rounded-lg border border-gray-300 px-4 py-2 text-gray-700 min-h-[100px]"
+          ></textarea>
+          <button
+            class="bg-blue-700 text-white px-4 py-2 rounded-md w-fit"
+            type="submit"
+          >
+            Envoyer
+          </button>
+        </form>
+      </section>
+    </main>
+
+    <footer class="p-6 flex flex-col md:flex-row justify-between w-full gap-8">
+      <!-- Logo et image -->
+      <div class="flex flex-col items-center w-full md:w-2/6">
+        <h2 class="text-4xl font-bold text-primary mb-2">CohaLinkk</h2>
+        <img src="img1.svg" alt="img1" class="w-24 h-24" />
+      </div>
+
+      <!-- Liens utiles -->
+      <div class="flex flex-col text-blue-500 space-y-2 w-full md:w-1/6">
+        <p class="font-bold text-black text-lg">Liens utiles</p>
+        <div class="grid grid-cols-2 md:grid-cols-1 gap-2">
+          <a href="#" class="hover:text-blue-700 transition-colors">A propos</a>
+          <a href="#" class="hover:text-blue-700 transition-colors"
+            >Partenaires</a
+          >
+          <a href="#" class="hover:text-blue-700 transition-colors">Services</a>
+          <a href="#" class="hover:text-blue-700 transition-colors"
+            >Mentions légales</a
+          >
+          <a href="#" class="hover:text-blue-700 transition-colors"
+            >Politique de confidentialité</a
+          >
+          <a href="#" class="hover:text-blue-700 transition-colors">CGU</a>
+        </div>
+      </div>
+
+      <!-- Réseaux sociaux -->
+      <div class="flex flex-col text-blue-500 space-y-2 w-full md:w-1/6">
+        <p class="font-bold text-black text-lg">Suivez-nous</p>
+        <div class="grid grid-cols-2 md:grid-cols-1 gap-2">
+          <a
+            href="#"
+            class="hover:text-blue-700 transition-colors flex items-center gap-2"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+              />
+            </svg>
+            Facebook
+          </a>
+          <a
+            href="#"
+            class="hover:text-blue-700 transition-colors flex items-center gap-2"
+          >
+            <i data-lucide="instagram" class="w-6 h-6 text-primary"></i>
+            Instagram
+          </a>
+          <a
+            href="#"
+            class="hover:text-blue-700 transition-colors flex items-center gap-2"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+              />
+            </svg>
+            LinkedIn
+          </a>
+          <a
+            href="#"
+            class="hover:text-blue-700 transition-colors flex items-center gap-2"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"
+              />
+            </svg>
+            TikTok
+          </a>
+        </div>
+      </div>
+
+      <!-- Newsletter -->
+      <div class="flex flex-col space-y-4 w-full md:w-2/6">
+        <p class="font-bold text-black text-lg">S'abonner à la newsletter</p>
+        <p class="text-sm text-gray-600">
+          Recevez nos actualités, les bon plans coloc' et de nombreuses
+          surprises ! (Pas de spam, promis)
+        </p>
+        <p class="text-sm text-gray-600">A bientôt dans votre boîte mail :-)</p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <input
+            type="email"
+            placeholder="Votre email"
+            class="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          />
+          <button
+            class="bg-blue-700 text-white px-6 py-2 rounded-md hover:bg-blue-800 transition-colors whitespace-nowrap"
+          >
+            S'abonner
+          </button>
+        </div>
+      </div>
+    </footer>
+  </body>
+
+  <!-- Icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      lucide.createIcons();
+
+      // Gestion du menu mobile
+      const menuBurger = document.getElementById("menu-burger");
+      const closeMenu = document.getElementById("close-menu");
+      const menuMobile = document.getElementById("menu-mobile");
+
+      menuBurger.addEventListener("click", () => {
+        menuMobile.classList.remove("translate-x-full");
+        document.body.style.overflow = "hidden";
+      });
+
+      closeMenu.addEventListener("click", () => {
+        menuMobile.classList.add("translate-x-full");
+        document.body.style.overflow = "";
+      });
+
+      // Fermer le menu si on clique sur un lien
+      const menuLinks = menuMobile.querySelectorAll("a");
+      menuLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          menuMobile.classList.add("translate-x-full");
+          document.body.style.overflow = "";
+        });
+      });
+    });
+  </script>
+</html>
