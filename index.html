@@ -156,11 +156,14 @@
       <!-- Section 1 avec vidéo en arrière-plan -->
       <div class="relative w-full h-[400px] overflow-hidden">
         <video
+          id="hero-video"
           class="absolute top-0 left-0 w-full h-full object-cover"
           autoplay
           loop
           muted
           playsinline
+          preload="auto"
+          x-webkit-airplay="allow"
         >
           <source src="./video.mp4" type="video/mp4" />
         </video>
@@ -775,6 +778,42 @@
       const menuBurger = document.getElementById("menu-burger");
       const closeMenu = document.getElementById("close-menu");
       const menuMobile = document.getElementById("menu-mobile");
+
+      // Gestion de la vidéo
+      const video = document.getElementById("hero-video");
+
+      // Fonction pour démarrer la vidéo
+      const playVideo = async () => {
+        try {
+          await video.play();
+        } catch (err) {
+          // Si l'autoplay échoue, on réessaie après un clic utilisateur
+          document.addEventListener(
+            "click",
+            () => {
+              video.play();
+            },
+            { once: true }
+          );
+        }
+      };
+
+      // Démarrer la vidéo au chargement
+      playVideo();
+
+      // Réessayer de démarrer la vidéo quand elle devient visible
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              playVideo();
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+
+      observer.observe(video);
 
       menuBurger.addEventListener("click", () => {
         menuMobile.classList.remove("translate-x-full");
