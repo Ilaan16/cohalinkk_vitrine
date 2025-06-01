@@ -12,9 +12,15 @@
       rel="stylesheet"
     />
 
-    <title>Ma Vitrine</title>
+    <title>CohaLinkk</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- CountUp.js -->
+    <script src="https://cdn.jsdelivr.net/npm/countup.js@2.8.0/dist/countUp.min.js"></script>
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <!-- Configuration optionnelle (ex: custom colors, fonts) -->
     <script>
@@ -171,15 +177,23 @@
         <div
           class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center"
         >
-          <section class="p-6 mx-auto w-full text-center space-y-4 text-white">
+          <section
+            class="p-6 mx-auto w-full text-center space-y-4 text-white"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+          >
             <h2 class="text-2xl font-semibold text-white mb-2">
               Découvrez, rencontrez, échangez, cohabitez
             </h2>
-            <p class="text-white">
+            <p class="text-white" data-aos="fade-up" data-aos-delay="200">
               Nous faire confiance, c'est partager bien plus qu'un logement,
               c'est avancer ensemble, en pensant un peu plus à demain.
             </p>
-            <button class="bg-lime-100 text-black px-4 py-2 rounded-md">
+            <button
+              class="bg-lime-100 text-black px-4 py-2 rounded-md hover:scale-105 transition-transform"
+              data-aos="zoom-in"
+              data-aos-delay="400"
+            >
               Restez informé
             </button>
           </section>
@@ -187,29 +201,45 @@
       </div>
 
       <!-- Section 2 (sans vidéo) -->
-      <section class="p-6 mx-auto w-full text-center space-y-4">
+      <section
+        class="p-6 mx-auto w-full text-center space-y-4"
+        data-aos="fade-up"
+      >
         <h2
           class="text-3xl font-palanquindark font-semibold text-blue-800 mb-2"
         >
           NOS SERVICES
         </h2>
-        <p class="text-gray-700 font-bold">
+        <p
+          class="text-gray-700 font-bold"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
           "Un seul clic pour une colocation qui vous ressemble : bon coloc, bon
           appart, bon départ."
         </p>
       </section>
 
       <section class="p-6 mx-auto w-full space-y-6">
-        <h2 class="text-2xl font-bold text-blue-800 mb-2 uppercase">
+        <h2
+          class="text-2xl font-bold text-blue-800 mb-2 uppercase"
+          data-aos="fade-right"
+        >
           <span class="text-gray-700">Devenir</span
           ><span class="text-blue-800 font-palanquindark"> colocataire</span>
         </h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
-          <div>
-            <div class="bg-white p-6 rounded-lg shadow-md space-y-4 h-full">
+          <div data-aos="fade-up" data-aos-delay="100">
+            <div
+              class="bg-white p-6 rounded-lg shadow-md space-y-4 h-full hover:shadow-lg transition-shadow"
+            >
               <h3 class="w-full text-xl font-bold text-primary mb-2 text-right">
-                <span class="text-gray-700 font-bold text-5xl">1/4</span> des
-                personnes s'est déjà retrouvée sans logement après avoir
+                <span
+                  class="text-gray-700 font-bold text-5xl counter"
+                  data-value="1/4"
+                  >1/4</span
+                >
+                des personnes s'est déjà retrouvée sans logement après avoir
                 réservé, une fois arrivée sur place.
               </h3>
               <i data-lucide="users" class="w-6 h-6 text-primary"></i>
@@ -240,11 +270,19 @@
             </div>
           </div>
 
-          <div>
-            <div class="bg-white p-6 rounded-lg shadow-md space-y-4 h-full">
+          <div data-aos="fade-up" data-aos-delay="200">
+            <div
+              class="bg-white p-6 rounded-lg shadow-md space-y-4 h-full hover:shadow-lg transition-shadow"
+            >
               <h3 class="w-full text-xl font-bold text-primary mb-2 text-right">
-                <span class="text-gray-700 font-bold text-5xl">83%</span> des
-                bonnes colocations commencent par une vraie compatibilité.
+                <span
+                  class="text-gray-700 font-bold text-5xl counter"
+                  data-value="83%"
+                  data-start="0"
+                  data-end="83"
+                  >0%</span
+                >
+                des bonnes colocations commencent par une vraie compatibilité.
               </h3>
               <i data-lucide="users" class="w-6 h-6 text-primary"></i>
               <p class="text-gray-700 font-bold mt-4">Système de Matching</p>
@@ -272,12 +310,20 @@
             </div>
           </div>
 
-          <div>
-            <div class="bg-white p-6 rounded-lg shadow-md space-y-4 h-full">
+          <div data-aos="fade-up" data-aos-delay="300">
+            <div
+              class="bg-white p-6 rounded-lg shadow-md space-y-4 h-full hover:shadow-lg transition-shadow"
+            >
               <h3 class="w-full text-xl font-bold text-primary mb-2 text-right">
                 Plus de
-                <span class="text-gray-700 font-bold text-5xl">50%</span> des
-                Français rencontrent des difficultés pour se loger.
+                <span
+                  class="text-gray-700 font-bold text-5xl counter"
+                  data-value="50%"
+                  data-start="0"
+                  data-end="50"
+                  >0%</span
+                >
+                des Français rencontrent des difficultés pour se loger.
               </h3>
               <i data-lucide="users" class="w-6 h-6 text-primary"></i>
               <p class="text-gray-700 font-bold mt-4">
@@ -309,20 +355,33 @@
       </section>
 
       <div class="w-full flex justify-center">
-        <section class="w-1/3 h-0.5 bg-gray-400 rounded-lg"></section>
+        <section
+          class="w-1/3 h-0.5 bg-gray-400 rounded-lg"
+          data-aos="width"
+          data-aos-duration="1000"
+        ></section>
       </div>
 
       <section class="p-6 mx-auto w-full space-y-6">
-        <h2 class="text-2xl font-bold text-blue-800 mb-2 uppercase">
+        <h2
+          class="text-2xl font-bold text-blue-800 mb-2 uppercase"
+          data-aos="fade-right"
+        >
           <span class="text-gray-700">Devenir</span
           ><span class="text-blue-800 font-palanquindark"> propriétaire</span>
         </h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
-          <div>
-            <div class="bg-white p-6 rounded-lg shadow-md space-y-4 h-full">
+          <div data-aos="fade-up" data-aos-delay="100">
+            <div
+              class="bg-white p-6 rounded-lg shadow-md space-y-4 h-full hover:shadow-lg transition-shadow"
+            >
               <h3 class="w-full text-xl font-bold text-primary mb-2 text-right">
-                <span class="text-gray-700 font-bold text-5xl">1/4</span> des
-                personnes s'est déjà retrouvée sans logement après avoir
+                <span
+                  class="text-gray-700 font-bold text-5xl counter"
+                  data-value="1/4"
+                  >1/4</span
+                >
+                des personnes s'est déjà retrouvée sans logement après avoir
                 réservé, une fois arrivée sur place.
               </h3>
               <i data-lucide="users" class="w-6 h-6 text-primary"></i>
@@ -353,11 +412,19 @@
             </div>
           </div>
 
-          <div>
-            <div class="bg-white p-6 rounded-lg shadow-md space-y-4 h-full">
+          <div data-aos="fade-up" data-aos-delay="200">
+            <div
+              class="bg-white p-6 rounded-lg shadow-md space-y-4 h-full hover:shadow-lg transition-shadow"
+            >
               <h3 class="w-full text-xl font-bold text-primary mb-2 text-right">
-                <span class="text-gray-700 font-bold text-5xl">83%</span> des
-                bonnes colocations commencent par une vraie compatibilité.
+                <span
+                  class="text-gray-700 font-bold text-5xl counter"
+                  data-value="83%"
+                  data-start="0"
+                  data-end="83"
+                  >0%</span
+                >
+                des bonnes colocations commencent par une vraie compatibilité.
               </h3>
               <i data-lucide="users" class="w-6 h-6 text-primary"></i>
               <p class="text-gray-700 font-bold mt-4">Système de Matching</p>
@@ -385,12 +452,20 @@
             </div>
           </div>
 
-          <div>
-            <div class="bg-white p-6 rounded-lg shadow-md space-y-4 h-full">
+          <div data-aos="fade-up" data-aos-delay="300">
+            <div
+              class="bg-white p-6 rounded-lg shadow-md space-y-4 h-full hover:shadow-lg transition-shadow"
+            >
               <h3 class="w-full text-xl font-bold text-primary mb-2 text-right">
                 Plus de
-                <span class="text-gray-700 font-bold text-5xl">50%</span> des
-                Français rencontrent des difficultés pour se loger.
+                <span
+                  class="text-gray-700 font-bold text-5xl counter"
+                  data-value="50%"
+                  data-start="0"
+                  data-end="50"
+                  >0%</span
+                >
+                des Français rencontrent des difficultés pour se loger.
               </h3>
               <i data-lucide="users" class="w-6 h-6 text-primary"></i>
               <p class="text-gray-700 font-bold mt-4">
@@ -424,11 +499,16 @@
       <!-- eco section -->
       <section
         class="mx-auto py-12 w-full space-y-6 bg-lime-100 flex flex-col items-center justify-center"
+        data-aos="fade-up"
       >
-        <h2 class="md:text-2xl text-xl font-bold mb-2">
+        <h2 class="md:text-2xl text-xl font-bold mb-2" data-aos="zoom-in">
           Système de récompenses éco
         </h2>
-        <div class="md:flex md:flex-row">
+        <div
+          class="md:flex md:flex-row"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
           <p>Gagnez des « Feuilles »</p>
           <span class="mx-2"
             ><svg
@@ -453,31 +533,66 @@
         </div>
         <!-- images carousel -->
         <div class="flex flex-row space-x-6 overflow-x-auto">
-          <img src="img1.svg" alt="img1" class="w-24 h-24" />
-          <img src="img2.svg" alt="img2" class="w-24 h-24" />
-          <img src="img3.svg" alt="img3" class="w-24 h-24" />
-          <img src="img1.svg" alt="img1" class="w-24 h-24" />
-          <img src="img2.svg" alt="img2" class="w-24 h-24" />
-          <img src="img3.svg" alt="img3" class="w-24 h-24" />
+          <img
+            src="img1.svg"
+            alt="img1"
+            class="w-24 h-24 hover:scale-110 transition-transform"
+            data-aos="flip-left"
+            data-aos-delay="100"
+          />
+          <img
+            src="img2.svg"
+            alt="img2"
+            class="w-24 h-24 hover:scale-110 transition-transform"
+            data-aos="flip-left"
+            data-aos-delay="200"
+          />
+          <img
+            src="img3.svg"
+            alt="img3"
+            class="w-24 h-24 hover:scale-110 transition-transform"
+            data-aos="flip-left"
+            data-aos-delay="300"
+          />
+          <img
+            src="img1.svg"
+            alt="img1"
+            class="w-24 h-24 hover:scale-110 transition-transform"
+            data-aos="flip-left"
+            data-aos-delay="400"
+          />
+          <img
+            src="img2.svg"
+            alt="img2"
+            class="w-24 h-24 hover:scale-110 transition-transform"
+            data-aos="flip-left"
+            data-aos-delay="500"
+          />
+          <img
+            src="img3.svg"
+            alt="img3"
+            class="w-24 h-24 hover:scale-110 transition-transform"
+            data-aos="flip-left"
+            data-aos-delay="600"
+          />
         </div>
       </section>
 
       <!-- Notre histoire section -->
-      <section class="mx-auto p-6 w-full space-y-2">
+      <section class="mx-auto p-6 w-full space-y-2" data-aos="fade-up">
         <h2
           class="text-2xl font-palanquindark font-semibold text-primary mb-2 text-center uppercase"
+          data-aos="zoom-in"
         >
           Notre histoire
         </h2>
-        <p class="flex flex-row">Tout a commencé lors de nos études....</p>
-        <p>C'est à ce moment là qu'ils ont rencontré Ilan...</p>
-        <p>Ensemble, ils ont crée CohaLinkk, une solution qui transforme....</p>
-
         <div
           class="flex md:flex-row flex-col justify-center md:space-x-4 space-y-2"
         >
           <div
-            class="flex flex-col bg-white p-6 rounded-lg shadow-md space-y-4 h-full"
+            class="flex flex-col bg-white p-6 rounded-lg shadow-md space-y-4 h-full hover:shadow-lg transition-shadow"
+            data-aos="fade-right"
+            data-aos-delay="100"
           >
             <div class="flex flex-row justify-between">
               <div class="font-bold">
@@ -493,7 +608,9 @@
             </p>
           </div>
           <div
-            class="flex flex-col bg-white p-6 rounded-lg shadow-md space-y-4 h-full"
+            class="flex flex-col bg-white p-6 rounded-lg shadow-md space-y-4 h-full hover:shadow-lg transition-shadow"
+            data-aos="fade-up"
+            data-aos-delay="200"
           >
             <div class="flex flex-row justify-between">
               <div class="font-bold">
@@ -509,7 +626,9 @@
             </p>
           </div>
           <div
-            class="flex flex-col bg-white p-6 rounded-lg shadow-md space-y-4 h-full"
+            class="flex flex-col bg-white p-6 rounded-lg shadow-md space-y-4 h-full hover:shadow-lg transition-shadow"
+            data-aos="fade-left"
+            data-aos-delay="300"
           >
             <div class="flex flex-row justify-between">
               <div class="font-bold">
@@ -603,8 +722,9 @@
       <!-- Contact section with "Nous contacter" with text under, form on right of this -->
       <section
         class="p-6 mx-auto w-full bg-blue-300 text-white flex md:flex-row flex-col justify-between gap-8"
+        data-aos="fade-up"
       >
-        <div class="md:w-1/2 flex-shrink-0">
+        <div class="md:w-1/2 flex-shrink-0" data-aos="fade-right">
           <h2 class="md:text-5xl text-3xl mb-2">Nous<br />contacter</h2>
           <p>
             Futur coloc, propriétaire, partenaire ou ambassadeur auto-proclamé ?
@@ -617,7 +737,7 @@
             ? Peu importe le mot : nous, on est partants.
           </p>
         </div>
-        <form class="md:w-1/2 flex flex-col space-y-4">
+        <form class="md:w-1/2 flex flex-col space-y-4" data-aos="fade-left">
           <div class="flex md:flex-row gap-4 flex-col">
             <input
               type="text"
@@ -772,6 +892,14 @@
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
+      // Initialiser AOS
+      AOS.init({
+        duration: 800,
+        once: true,
+        offset: 100,
+        easing: "ease-out-cubic",
+      });
+
       lucide.createIcons();
 
       // Gestion du menu mobile
@@ -787,7 +915,6 @@
         try {
           await video.play();
         } catch (err) {
-          // Si l'autoplay échoue, on réessaie après un clic utilisateur
           document.addEventListener(
             "click",
             () => {
@@ -798,10 +925,8 @@
         }
       };
 
-      // Démarrer la vidéo au chargement
       playVideo();
 
-      // Réessayer de démarrer la vidéo quand elle devient visible
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
@@ -814,6 +939,61 @@
       );
 
       observer.observe(video);
+
+      // Gestion des compteurs animés
+      const counters = document.querySelectorAll(".counter");
+
+      function animateCounter(counter) {
+        const value = counter.dataset.value;
+
+        // Si c'est une fraction (1/4), on l'affiche directement
+        if (value.includes("/")) {
+          counter.textContent = value;
+          return;
+        }
+
+        // Sinon c'est un pourcentage à animer
+        const start = parseInt(counter.dataset.start);
+        const end = parseInt(counter.dataset.end);
+        const duration = 2000; // 2 secondes
+        const startTime = performance.now();
+
+        function updateCounter(currentTime) {
+          const elapsed = currentTime - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+
+          // Fonction d'easing pour une animation plus fluide
+          const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+
+          const currentValue = Math.floor(easeOutQuart * (end - start) + start);
+          counter.textContent = currentValue + "%";
+
+          if (progress < 1) {
+            requestAnimationFrame(updateCounter);
+          }
+        }
+
+        requestAnimationFrame(updateCounter);
+      }
+
+      const counterObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              animateCounter(entry.target);
+              counterObserver.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.5,
+          rootMargin: "0px",
+        }
+      );
+
+      counters.forEach((counter) => {
+        counterObserver.observe(counter);
+      });
 
       menuBurger.addEventListener("click", () => {
         menuMobile.classList.remove("translate-x-full");
