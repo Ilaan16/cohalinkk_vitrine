@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="curved-badge.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -99,18 +100,18 @@
           <div class="text-center lg:text-center col-span-2">
             <!-- Titre principal -->
             <h2
-              class="text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight"
+              class="text-4xl lg:text-5xl text-white mb-6 leading-tight"
             >
               Réinvente la
               <br />
               <span
-                class="inline-block bg-coha-orange text-blue-800 px-4 py-2 rounded-2xl transform -rotate-1"
+                class="curved-badge-large orange text-blue transform -rotate-3"
               >
                 colocation
               </span>
               <span class="text-white"> pour </span>
               <span
-                class="inline-block bg-coha-green text-blue-800 px-4 py-2 rounded-2xl transform rotate-1"
+                class="curved-badge-medium green text-blue transform rotate-3"
               >
                 tous
               </span>
@@ -135,7 +136,8 @@
             <div
               class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-center"
             >
-              <button
+              <a
+                href="./colocataire.html"
                 class="bg-white text-blue-700 space-x-2 px-6 py-2 rounded-full font-semibold text-lg hover:bg-blue-50 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center justify-center"
               >
                 <p>Colocataire</p>
@@ -158,7 +160,7 @@
                     <path d="m12 5 7 7-7 7" />
                   </svg>
                 </span>
-              </button>
+              </a>
               <button
                 class="bg-white space-x-2 border-2 border-white text-blue-700 px-6 py-2 rounded-full font-semibold text-lg hover:bg-white hover:text-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center justify-center"
               >
@@ -223,8 +225,10 @@
         <!-- Titre de la section -->
         <div class="text-center mb-12">
           <div class="inline-flex items-start gap-4 flex-col">
-            <span class="text-4xl lg:text-5xl font-bold text-gray-800">NOS</span>
-            <span class="bg-coha-blue text-white px-6 py-3 rounded-2xl text-4xl lg:text-5xl font-bold transform -rotate-1">
+            <span class="text-4xl lg:text-4xl font-semibold text-gray-800">NOS</span>
+            <span 
+            
+            class="curved-badge-large blue text-4xl">
               PARTENAIRES
             </span>
           </div>
@@ -268,12 +272,12 @@
         <div class="text-center mb-12">
           <h2 class="text-4xl lg:text-4xl font-bold text-gray-800 leading-tight">
             Une équipe qui connaît la 
-            <span class="inline-block bg-coha-orange text-white px-4 py-2 rounded-2xl transform -rotate-1 mx-2">
+            <span class="curved-badge-large orange transform -rotate-3">
               colocation
             </span>
             <br class="lg:hidden" />
             Et qui<br> veut la rendre 
-            <span class="inline-block bg-coha-green text-white px-4 py-2 rounded-2xl transform rotate-1 mx-2">
+            <span class="curved-badge-large green transform rotate-3">
               meilleure
             </span>
           </h2>
@@ -407,7 +411,7 @@
 
             <!-- Boutons -->
             <div class="flex flex-col sm:flex-row gap-4">
-              <button class="bg-white text-blue-700 space-x-2 px-6 py-3 rounded-full font-semibold text-lg hover:bg-blue-50 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center justify-center">
+              <a href="./colocataire.html" class="bg-white text-blue-700 space-x-2 px-6 py-3 rounded-full font-semibold text-lg hover:bg-blue-50 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center justify-center">
                 <p>Colocataire</p>
                 <span class="bg-blue-800 text-white px-1 py-1 rounded-2xl transform -rotate-1">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -415,7 +419,7 @@
                     <path d="m12 5 7 7-7 7" />
                   </svg>
                 </span>
-              </button>
+              </a>
               
               <button class="bg-white space-x-2 border-2 border-white text-blue-700 px-6 py-3 rounded-full font-semibold text-lg hover:bg-blue-50 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center justify-center">
                 <p>Gestionnaire de biens</p>
@@ -597,14 +601,16 @@
       </div>
     </section>
 
-    <style>
+        <style>
       .partner-card {
         transition: transform 0.3s ease;
       }
-      
+
       .partner-card:hover {
         transform: translateY(-5px);
       }
+
+
     </style>
   </body>
 </html>
