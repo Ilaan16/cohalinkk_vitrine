@@ -906,6 +906,11 @@
     </section>
 
     <style>
+      /* Smooth scrolling */
+      html {
+        scroll-behavior: smooth;
+      }
+
       /* Scrollbar hiding for testimonials */
       .scrollbar-hide {
         -ms-overflow-style: none;
@@ -1060,6 +1065,22 @@
       // Recentrer après redimensionnement
       window.addEventListener("resize", () => {
         centerMiddleCard();
+      });
+
+      // Gestion du smooth scroll pour les ancres
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          const targetId = this.getAttribute("href");
+          const targetElement = document.querySelector(targetId);
+
+          if (targetElement) {
+            e.preventDefault();
+            targetElement.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
       });
 
       // Gestion du formulaire de contact

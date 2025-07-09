@@ -1057,6 +1057,11 @@
     </section>
 
     <style>
+      /* Smooth scrolling */
+      html {
+        scroll-behavior: smooth;
+      }
+
       /* Accordion Styles */
       .accordion-content {
         transition: all 0.3s ease;
@@ -1281,6 +1286,22 @@
       // Recentrer après redimensionnement
       window.addEventListener("resize", () => {
         centerMiddleCard();
+      });
+
+      // Gestion du smooth scroll pour les ancres
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          const targetId = this.getAttribute("href");
+          const targetElement = document.querySelector(targetId);
+
+          if (targetElement) {
+            e.preventDefault();
+            targetElement.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
       });
 
       // Gestion du formulaire de contact
