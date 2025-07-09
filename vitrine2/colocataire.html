@@ -585,7 +585,9 @@
               <span class="curved-badge-medium">seule app</span>
             </p>
           </div>
-          <div class="flex flex-row space-x-2 justify-center lg:justify-start">
+          <div
+            class="hidden lg:flex flex-row space-x-2 justify-center lg:justify-start"
+          >
             <!-- arrow to change features view -->
             <button
               id="carousel-prev"
@@ -617,12 +619,17 @@
         >
           <div
             id="carousel-container"
-            class="flex gap-6 transition-transform duration-300 ease-in-out px-4"
-            style="transform: translateX(0px)"
+            class="flex gap-6 transition-transform duration-300 ease-in-out px-4 lg:px-4 overflow-x-auto lg:overflow-x-hidden scrollbar-hide lg:scrollbar-auto"
+            style="
+              transform: translateX(0px);
+              scroll-behavior: smooth;
+              scroll-snap-type: x mandatory;
+            "
           >
             <!-- Feature 1 -->
             <div
               class="bg-white rounded-2xl p-6 lg:p-8 flex flex-col min-w-[280px] sm:min-w-[320px] lg:min-w-[400px] w-[280px] sm:w-[320px] lg:w-[400px]"
+              style="scroll-snap-align: center"
             >
               <div class="h-1/2 flex items-center">
                 <!-- icon -->
@@ -647,6 +654,7 @@
             <!-- Feature 2 -->
             <div
               class="bg-white rounded-2xl p-6 lg:p-8 flex flex-col min-w-[280px] sm:min-w-[320px] lg:min-w-[400px] w-[280px] sm:w-[320px] lg:w-[400px]"
+              style="scroll-snap-align: center"
             >
               <div class="h-1/2 flex items-center">
                 <!-- icon -->
@@ -671,6 +679,7 @@
             <!-- Feature 3 -->
             <div
               class="bg-white rounded-2xl p-6 lg:p-8 flex flex-col min-w-[280px] sm:min-w-[320px] lg:min-w-[400px] w-[280px] sm:w-[320px] lg:w-[400px]"
+              style="scroll-snap-align: center"
             >
               <div class="h-1/2 flex items-center">
                 <!-- icon -->
@@ -695,6 +704,7 @@
             <!-- Feature 4 -->
             <div
               class="bg-white rounded-2xl p-6 lg:p-8 flex flex-col min-w-[280px] sm:min-w-[320px] lg:min-w-[400px] w-[280px] sm:w-[320px] lg:w-[400px]"
+              style="scroll-snap-align: center"
             >
               <div class="h-1/2 flex items-center">
                 <!-- icon -->
@@ -1188,7 +1198,7 @@
         color: #1f2937 !important;
       }
 
-      /* Scrollbar hiding for testimonials */
+      /* Scrollbar hiding for testimonials and mobile carousel */
       .scrollbar-hide {
         -ms-overflow-style: none;
         scrollbar-width: none;
@@ -1196,6 +1206,18 @@
 
       .scrollbar-hide::-webkit-scrollbar {
         display: none;
+      }
+
+      /* Restore scrollbar on desktop for specific elements */
+      @media (min-width: 1024px) {
+        .lg\:scrollbar-auto {
+          -ms-overflow-style: auto;
+          scrollbar-width: auto;
+        }
+
+        .lg\:scrollbar-auto::-webkit-scrollbar {
+          display: block;
+        }
       }
 
       /* Testimonials scroll container */
@@ -1266,13 +1288,17 @@
         });
       });
 
-      // Carousel functionality
+      // Carousel functionality - seulement sur desktop (lg et plus)
       const carousel = document.getElementById("carousel-container");
       const prevBtn = document.getElementById("carousel-prev");
       const nextBtn = document.getElementById("carousel-next");
 
       let currentIndex = 0;
       const totalCards = 4; // nombre total de cartes
+
+      function isDesktop() {
+        return window.innerWidth >= 1024;
+      }
 
       function getCardWidth() {
         // Largeur responsive des cartes
@@ -1288,7 +1314,7 @@
       function getCardsToShow() {
         // Responsive: ajuste le nombre de cartes visibles selon la taille d'écran
         if (window.innerWidth >= 1024) {
-          return 3.5; // Desktop: montre 3 cartes complètes + un aperçu de la 4ème
+          return 2.5; // Desktop: montre 2 cartes complètes + un aperçu de la 3ème
         } else if (window.innerWidth >= 768) {
           return 2.5; // Tablet: montre 2 cartes complètes + un aperçu
         } else {
@@ -1297,6 +1323,12 @@
       }
 
       function updateCarousel() {
+        // Seulement appliquer la logique de navigation sur desktop
+        if (!isDesktop()) {
+          carousel.style.transform = "translateX(0px)";
+          return;
+        }
+
         const cardsToShow = getCardsToShow();
         const cardWidth = getCardWidth();
         const gap = 24; // gap entre les cartes (6 * 4px)
@@ -1329,23 +1361,29 @@
       }
 
       prevBtn.addEventListener("click", () => {
-        if (currentIndex > 0) {
+        if (isDesktop() && currentIndex > 0) {
           currentIndex--;
           updateCarousel();
         }
       });
 
       nextBtn.addEventListener("click", () => {
-        const cardsToShow = getCardsToShow();
-        const maxIndex = Math.max(0, totalCards - Math.floor(cardsToShow));
-        if (currentIndex < maxIndex) {
-          currentIndex++;
-          updateCarousel();
+        if (isDesktop()) {
+          const cardsToShow = getCardsToShow();
+          const maxIndex = Math.max(0, totalCards - Math.floor(cardsToShow));
+          if (currentIndex < maxIndex) {
+            currentIndex++;
+            updateCarousel();
+          }
         }
       });
 
       // Event listener pour le redimensionnement
       window.addEventListener("resize", () => {
+        // Réinitialiser l'index quand on passe de mobile à desktop ou vice versa
+        if (!isDesktop()) {
+          currentIndex = 0;
+        }
         updateCarousel();
       });
 
