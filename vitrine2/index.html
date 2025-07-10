@@ -34,28 +34,38 @@
     >
       <!-- Image des personnes (cercle) - positionnée à gauche, masquée sur mobile -->
       <div
-        class="hidden lg:block absolute left-0 top-1/2 transform -translate-y-1/2 w-80 h-80 z-0"
+        class="hidden lg:block absolute left-0 top-1/2 transform -translate-y-1/2 w-80 h-80 z-0 animate-float"
       >
-        <img src="./assets/gens2.png" alt="koa" class="h-full" />
+        <img
+          src="./assets/gens2.png"
+          alt="koa"
+          class="h-full opacity-0"
+          id="hero-image"
+        />
       </div>
       <!-- Formes décoratives en arrière-plan, réduites sur mobile -->
       <div class="absolute inset-0 opacity-10">
         <div
-          class="absolute top-10 lg:top-20 right-10 lg:right-20 w-48 lg:w-96 h-48 lg:h-96 bg-white rounded-full blur-3xl"
+          class="floating-blob absolute top-10 lg:top-20 right-10 lg:right-20 w-48 lg:w-96 h-48 lg:h-96 bg-white rounded-full blur-3xl"
         ></div>
         <div
-          class="absolute bottom-10 lg:bottom-20 left-10 lg:left-20 w-36 lg:w-72 h-36 lg:h-72 bg-white rounded-full blur-3xl"
+          class="floating-blob-2 absolute bottom-10 lg:bottom-20 left-10 lg:left-20 w-36 lg:w-72 h-36 lg:h-72 bg-white rounded-full blur-3xl"
         ></div>
       </div>
       <!-- Koala masqué sur mobile -->
       <div class="hidden lg:block absolute top-0 right-0">
         <!-- import svg from ./assets/koa.svg -->
-        <img src="./assets/koala.svg" alt="koa" class="w-full h-full" />
+        <img
+          src="./assets/koala.svg"
+          alt="koa"
+          class="w-full h-full opacity-0"
+          id="koala-image"
+        />
       </div>
 
       <div class="container mx-auto px-4 py-8 relative z-10">
         <!-- Header avec logo -->
-        <header class="text-center items-center">
+        <header class="text-center items-center opacity-0" id="hero-logo">
           <svg
             class="w-64 h-auto mx-auto"
             id="Calque_1"
@@ -155,7 +165,8 @@
         >
           <!-- Contenu principal : Texte et boutons -->
           <div
-            class="text-center lg:text-center lg:col-span-2 lg:ml-80 order-2 lg:order-1"
+            class="text-center lg:text-center lg:col-span-2 lg:ml-80 order-2 lg:order-1 opacity-0"
+            id="hero-content"
           >
             <!-- Titre principal -->
             <h2
@@ -255,12 +266,13 @@
 
           <!-- Images : Téléphone mobile -->
           <div
-            class="lg:col-span-1 flex justify-center lg:absolute lg:right-0 lg:-bottom-12 order-1 lg:order-2"
+            class="lg:col-span-1 flex justify-center lg:absolute lg:right-0 lg:-bottom-12 order-1 lg:order-2 opacity-0"
+            id="hero-phone"
           >
             <!-- Téléphone mobile -->
             <div class="relative">
               <div
-                class="w-40 lg:w-48 h-[300px] lg:h-[350px] bg-gray-900 rounded-[3rem] p-2 shadow-2xl transform -rotate-6 lg:-rotate-12 hover:rotate-0 transition-transform duration-500"
+                class="phone-hover w-40 lg:w-48 h-[300px] lg:h-[350px] bg-gray-900 rounded-[3rem] p-2 shadow-2xl transform -rotate-6 lg:-rotate-12 hover:rotate-0 transition-all duration-700 hover:scale-105"
               >
                 <div
                   class="w-full h-full bg-white rounded-[2.5rem] overflow-hidden relative"
@@ -297,14 +309,12 @@
       </div>
     </section>
     <!-- Section partenaires -->
-    <section class="py-12 lg:py-16 bg-gray-50">
+    <section class="py-12 lg:py-16 bg-gray-50 reveal-section">
       <div class="container mx-auto px-4">
-        <div
-          class="flex flex-col lg:flex-row lg:items-center lg:space-x-12 space-y-8 lg:space-y-0"
-        >
+        <div class="flex flex-col items-center space-y-8">
           <!-- Titre de la section -->
-          <div class="text-center lg:text-left">
-            <div class="inline-flex items-start gap-4 flex-col">
+          <div class="text-center">
+            <div class="flex items-center justify-center gap-4">
               <span class="text-3xl lg:text-4xl font-semibold text-gray-800"
                 >NOS</span
               >
@@ -317,9 +327,11 @@
           <!-- Logos des partenaires -->
           <div class="flex justify-center items-center gap-6 lg:gap-16">
             <!-- Logo French Tech -->
-            <div class="partner-card relative">
+            <div
+              class="partner-card relative transform hover:scale-110 transition-all duration-300"
+            >
               <div
-                class="w-24 h-24 sm:w-32 sm:h-32 lg:w-40 lg:h-40 rounded-3xl p-1 bg-gradient-to-r from-yellow-400 via-blue-800 via-blue-900 to-green-400"
+                class="w-24 h-24 sm:w-32 sm:h-32 lg:w-40 lg:h-40 rounded-3xl p-1 bg-gradient-to-r from-yellow-400 via-blue-800 via-blue-900 to-green-400 hover:shadow-2xl transition-all duration-300"
               >
                 <div
                   class="w-full h-full bg-white rounded-3xl flex items-center justify-center p-4 lg:p-6"
@@ -334,9 +346,11 @@
             </div>
 
             <!-- Logo BPI -->
-            <div class="partner-card relative">
+            <div
+              class="partner-card relative transform hover:scale-110 transition-all duration-300"
+            >
               <div
-                class="w-24 h-24 sm:w-32 sm:h-32 lg:w-40 lg:h-40 rounded-3xl p-1 bg-gradient-to-r from-green-400 via-blue-900 via-blue-800 to-yellow-400"
+                class="w-24 h-24 sm:w-32 sm:h-32 lg:w-40 lg:h-40 rounded-3xl p-1 bg-gradient-to-r from-green-400 via-blue-900 via-blue-800 to-yellow-400 hover:shadow-2xl transition-all duration-300"
               >
                 <div
                   class="w-full h-full bg-white rounded-3xl flex items-center justify-center p-4 lg:p-6"
@@ -355,21 +369,25 @@
     </section>
 
     <!-- Section slogans -->
-    <section class="py-12 lg:py-20 bg-white">
+    <section class="py-12 lg:py-20 bg-white reveal-section">
       <div class="container mx-auto px-4">
         <!-- Titre principal avec mots colorés -->
         <div class="text-center mb-8 lg:mb-12">
           <h2
-            class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-800 leading-tight"
+            class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-800 leading-tight stagger-text"
           >
             Une équipe qui connaît la
-            <span class="curved-badge-large orange transform -rotate-3">
+            <span
+              class="curved-badge-large orange transform -rotate-3 hover:rotate-0 transition-transform duration-300"
+            >
               colocation
             </span>
             <br class="sm:hidden" />
-            Et qui<br />
+            et qui<br />
             veut la rendre
-            <span class="curved-badge-large green transform rotate-3">
+            <span
+              class="curved-badge-large green transform rotate-3 hover:rotate-0 transition-transform duration-300"
+            >
               meilleure
             </span>
           </h2>
@@ -377,7 +395,9 @@
 
         <!-- Paragraphe d'explication -->
         <div class="text-center max-w-4xl mx-auto">
-          <p class="text-lg lg:text-xl text-gray-600 leading-relaxed">
+          <p
+            class="text-lg lg:text-xl text-gray-600 leading-relaxed fade-in-text"
+          >
             CohaLinkk, c'est l'histoire de deux sœurs et d'un développeur qui
             ont vécu les limites de la colocation actuelle. Ensemble, ils ont
             imaginé une solution simple, humaine et sécurisée.
@@ -387,15 +407,15 @@
     </section>
 
     <!-- Section équipe -->
-    <section class="py-12 lg:py-20 bg-white">
+    <section class="py-12 lg:py-20 bg-white reveal-section">
       <div class="container mx-auto px-4">
         <!-- Grille des membres de l'équipe -->
         <div
-          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto"
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto team-cards"
         >
           <!-- Cyrielle Foxonet -->
           <div
-            class="bg-blue-50 rounded-3xl overflow-hidden hover:shadow-xl transition-shadow duration-300"
+            class="team-card bg-blue-50 rounded-3xl overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 transform hover:scale-105"
           >
             <!-- Photo avec fond coloré -->
             <div
@@ -414,7 +434,11 @@
                 <h3 class="text-xl font-bold text-gray-800">
                   Cyrielle Foxonet
                 </h3>
-                <a href="#" class="text-blue-600 hover:text-blue-800">
+                <a
+                  href="https://www.linkedin.com/in/cyrielle-foxonet-61272a198/"
+                  target="_blank"
+                  class="text-blue-600 hover:text-blue-800"
+                >
                   <svg
                     width="24"
                     height="24"
@@ -429,16 +453,19 @@
               </div>
               <p class="text-blue-600 font-semibold mb-3">Co-fondatrice</p>
               <p class="text-gray-600 text-sm leading-relaxed">
-                Diplômée en management public, Cyrielle a imaginé CohaLinkk aux
-                ages étudiantes manquantes de colocation à Paris. Elle porte la
-                vision d'une plateforme humaine, efficace et sécurisée.
+                Diplômée d’une IAE, Ecole de Management Publique à Toulouse.
+                C’est lors de mon alternance à Paris, en vivant une expérience
+                de colocation de courte durée, que j’ai identifié des besoins
+                réels chez les locataires et les propriétaires. Cette situation
+                m’a inspirée à imaginer une plateforme dédiée à la colocation.
+                Je souhaite aujourd’hui concrétiser ce projet innovant.
               </p>
             </div>
           </div>
 
           <!-- Romane Foxonet -->
           <div
-            class="bg-blue-50 rounded-3xl overflow-hidden hover:shadow-xl transition-shadow duration-300"
+            class="team-card bg-blue-50 rounded-3xl overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 transform hover:scale-105"
           >
             <!-- Photo avec fond coloré -->
             <div
@@ -455,7 +482,11 @@
             <div class="p-6">
               <div class="flex items-center justify-between mb-2">
                 <h3 class="text-xl font-bold text-gray-800">Romane Foxonet</h3>
-                <a href="#" class="text-blue-600 hover:text-blue-800">
+                <a
+                  href="https://www.linkedin.com/in/romane-foxonet-174a20370/"
+                  target="_blank"
+                  class="text-blue-600 hover:text-blue-800"
+                >
                   <svg
                     width="24"
                     height="24"
@@ -479,7 +510,7 @@
 
           <!-- Ilan Chekroun -->
           <div
-            class="bg-blue-50 rounded-3xl overflow-hidden hover:shadow-xl transition-shadow duration-300"
+            class="team-card bg-blue-50 rounded-3xl overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 transform hover:scale-105"
           >
             <!-- Photo avec fond coloré -->
             <div
@@ -496,7 +527,11 @@
             <div class="p-6">
               <div class="flex items-center justify-between mb-2">
                 <h3 class="text-xl font-bold text-gray-800">Ilan Chekroun</h3>
-                <a href="#" class="text-blue-600 hover:text-blue-800">
+                <a
+                  href="https://www.linkedin.com/in/ilaan16/"
+                  target="_blank"
+                  class="text-blue-600 hover:text-blue-800"
+                >
                   <svg
                     width="24"
                     height="24"
@@ -525,7 +560,7 @@
 
     <!-- pub section -->
     <section
-      class="py-12 lg:py-20 mx-4 lg:mx-20 rounded-3xl bg-orange-300 relative overflow-hidden"
+      class="py-12 lg:py-20 mx-4 lg:mx-20 rounded-3xl bg-orange-300 relative overflow-hidden reveal-section"
     >
       <!-- Formes décoratives en arrière-plan, masquées sur mobile -->
       <img
@@ -615,7 +650,7 @@
           <div class="flex justify-center order-1 lg:order-2">
             <div class="relative">
               <div
-                class="w-48 lg:w-64 h-[350px] lg:h-[500px] bg-gray-900 rounded-[3rem] p-2 lg:p-3 shadow-2xl"
+                class="phone-hover w-48 lg:w-64 h-[350px] lg:h-[500px] bg-gray-900 rounded-[3rem] p-2 lg:p-3 shadow-2xl transform hover:scale-105 hover:rotate-2 transition-all duration-700"
               >
                 <div
                   class="w-full h-full bg-white rounded-[2.5rem] overflow-hidden relative"
@@ -657,7 +692,7 @@
 
     <!-- contact section -->
     <section
-      class="py-12 lg:py-20 bg-emerald-500 rounded-3xl mx-4 lg:mx-10 my-6 lg:my-10 relative overflow-hidden"
+      class="py-12 lg:py-20 bg-emerald-500 rounded-3xl mx-4 lg:mx-10 my-6 lg:my-10 relative overflow-hidden reveal-section"
     >
       <!-- Vecteurs decoratifs en arrière-plan, masqués sur mobile -->
       <img
@@ -676,7 +711,7 @@
       <div class="container mx-auto px-4 relative z-10">
         <!-- Carte blanche unique contenant tout le contenu -->
         <div
-          class="bg-white rounded-3xl p-6 lg:p-12 shadow-lg max-w-6xl mx-auto"
+          class="bg-white rounded-3xl p-6 lg:p-12 shadow-lg max-w-6xl mx-auto hover:shadow-2xl transition-shadow duration-500 contact-form"
         >
           <div
             class="flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-12 items-start"
@@ -726,7 +761,7 @@
               <form
                 action="https://formspree.io/f/mjkrqpgd"
                 method="POST"
-                class="space-y-6"
+                class="space-y-6 form-animation"
               >
                 <!-- Dropdown -->
                 <div>
@@ -824,7 +859,7 @@
                 <!-- Bouton de soumission -->
                 <button
                   type="submit"
-                  class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-full transition-colors duration-300"
+                  class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
                 >
                   Soumettre
                 </button>
@@ -868,9 +903,258 @@
       </div>
     </section>
 
+    <!-- Anime.js CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+
+    <style>
+      /* Animations personnalisées */
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px) translateX(0px);
+        }
+        33% {
+          transform: translateY(-20px) translateX(10px);
+        }
+        66% {
+          transform: translateY(-10px) translateX(-5px);
+        }
+      }
+
+      @keyframes floatBlob {
+        0%,
+        100% {
+          transform: translateY(0px) scale(1);
+        }
+        50% {
+          transform: translateY(-30px) scale(1.1);
+        }
+      }
+
+      @keyframes floatBlob2 {
+        0%,
+        100% {
+          transform: translateY(0px) scale(1);
+        }
+        50% {
+          transform: translateY(20px) scale(0.9);
+        }
+      }
+
+      .animate-float {
+        animation: float 6s ease-in-out infinite;
+      }
+
+      .floating-blob {
+        animation: floatBlob 8s ease-in-out infinite;
+      }
+
+      .floating-blob-2 {
+        animation: floatBlob2 7s ease-in-out infinite;
+      }
+
+      .phone-hover {
+        transition: all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+
+      .phone-hover:hover {
+        transform: rotate(0deg) scale(1.05) !important;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25) !important;
+      }
+
+      /* Révélation progressive */
+      .reveal-section {
+        opacity: 0;
+        transform: translateY(50px);
+        transition: all 0.8s ease-out;
+      }
+
+      .reveal-section.revealed {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Animation des cartes équipe */
+      .team-card {
+        opacity: 0;
+        transform: translateY(30px) scale(0.9);
+        transition: all 0.6s ease-out;
+      }
+
+      .team-card.animate {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+
+      /* Formulaire animé */
+      .form-animation input,
+      .form-animation textarea,
+      .form-animation select {
+        transition: all 0.3s ease;
+      }
+
+      .form-animation input:focus,
+      .form-animation textarea:focus,
+      .form-animation select:focus {
+        transform: scale(1.02);
+        box-shadow: 0 8px 25px rgba(59, 94, 247, 0.15);
+      }
+    </style>
+
     <script>
       // Gestion du formulaire de contact
       document.addEventListener("DOMContentLoaded", function () {
+        // Animation d'entrée du hero
+        const heroTimeline = anime.timeline({
+          easing: "easeOutExpo",
+          duration: 1000,
+        });
+
+        // Logo d'abord
+        heroTimeline
+          .add({
+            targets: "#hero-logo",
+            opacity: [0, 1],
+            translateY: [-30, 0],
+            duration: 800,
+          })
+          // Puis contenu
+          .add(
+            {
+              targets: "#hero-content",
+              opacity: [0, 1],
+              translateY: [50, 0],
+              duration: 1000,
+            },
+            "-=400"
+          )
+          // Puis téléphone
+          .add(
+            {
+              targets: "#hero-phone",
+              opacity: [0, 1],
+              translateX: [100, 0],
+              scale: [0.8, 1],
+              duration: 1200,
+            },
+            "-=600"
+          )
+          // Images décoratives
+          .add(
+            {
+              targets: "#hero-image, #koala-image",
+              opacity: [0, 1],
+              scale: [0.8, 1],
+              duration: 800,
+            },
+            "-=800"
+          );
+
+        // Animation des badges au hover
+        const badges = document.querySelectorAll(
+          ".curved-badge-large, .curved-badge-medium"
+        );
+        badges.forEach((badge) => {
+          badge.addEventListener("mouseenter", () => {
+            anime({
+              targets: badge,
+              scale: [1, 1.1],
+              duration: 300,
+              easing: "easeOutCubic",
+            });
+          });
+
+          badge.addEventListener("mouseleave", () => {
+            anime({
+              targets: badge,
+              scale: [1.1, 1],
+              duration: 300,
+              easing: "easeOutCubic",
+            });
+          });
+        });
+
+        // Intersection Observer pour les révélations au scroll
+        const observerOptions = {
+          threshold: 0.1,
+          rootMargin: "0px 0px -50px 0px",
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("revealed");
+
+              // Animation spéciale pour les cartes équipe
+              if (entry.target.querySelector(".team-cards")) {
+                const teamCards = entry.target.querySelectorAll(".team-card");
+                anime({
+                  targets: teamCards,
+                  opacity: [0, 1],
+                  translateY: [30, 0],
+                  scale: [0.9, 1],
+                  delay: anime.stagger(200),
+                  duration: 600,
+                  easing: "easeOutExpo",
+                });
+              }
+            }
+          });
+        }, observerOptions);
+
+        // Observer toutes les sections à révéler
+        document.querySelectorAll(".reveal-section").forEach((section) => {
+          observer.observe(section);
+        });
+
+        // Animation des logos partenaires
+        const partnerCards = document.querySelectorAll(".partner-card");
+        partnerCards.forEach((card) => {
+          card.addEventListener("mouseenter", () => {
+            anime({
+              targets: card,
+              rotate: [0, 5],
+              scale: [1, 1.1],
+              duration: 300,
+              easing: "easeOutCubic",
+            });
+          });
+
+          card.addEventListener("mouseleave", () => {
+            anime({
+              targets: card,
+              rotate: [5, 0],
+              scale: [1.1, 1],
+              duration: 300,
+              easing: "easeOutCubic",
+            });
+          });
+        });
+
+        // Animation des inputs du formulaire
+        const formInputs = document.querySelectorAll(
+          ".form-animation input, .form-animation textarea, .form-animation select"
+        );
+        formInputs.forEach((input) => {
+          input.addEventListener("focus", () => {
+            anime({
+              targets: input,
+              scale: [1, 1.02],
+              duration: 200,
+              easing: "easeOutQuad",
+            });
+          });
+
+          input.addEventListener("blur", () => {
+            anime({
+              targets: input,
+              scale: [1.02, 1],
+              duration: 200,
+              easing: "easeOutQuad",
+            });
+          });
+        });
+
         const form = document.querySelector("form");
         const confirmationMessage = document.getElementById(
           "confirmation-message"
@@ -880,6 +1164,14 @@
         const originalButtonText = submitButton.textContent;
 
         form.addEventListener("submit", function (e) {
+          // Animation du bouton
+          anime({
+            targets: submitButton,
+            scale: [1, 0.95, 1],
+            duration: 200,
+            easing: "easeInOutQuad",
+          });
+
           // Afficher l'état de chargement
           submitButton.textContent = "Envoi en cours...";
           submitButton.disabled = true;
@@ -887,9 +1179,6 @@
           // Masquer les messages précédents
           confirmationMessage.classList.add("hidden");
           errorMessage.classList.add("hidden");
-
-          // Formspree gère automatiquement la soumission
-          // Ce script améliore juste l'expérience utilisateur
 
           // Simuler un délai pour l'état de chargement
           setTimeout(() => {
@@ -899,7 +1188,7 @@
           }, 2000);
         });
 
-        // Gestion des paramètres URL (si Formspree redirige avec un paramètre de succès)
+        // Gestion des paramètres URL
         const urlParams = new URLSearchParams(window.location.search);
         if (urlParams.get("success") === "true") {
           confirmationMessage.classList.remove("hidden");
