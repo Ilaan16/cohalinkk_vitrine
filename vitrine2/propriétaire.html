@@ -205,29 +205,31 @@
             id="hero-phone"
           >
             <div
-              class="phone-hover w-48 lg:w-72 h-[350px] lg:h-[500px] bg-gray-900 rounded-[3rem] p-2 lg:p-3 shadow-2xl transform hover:scale-105 hover:rotate-2 transition-all duration-700"
+              class="relative mx-auto border-gray-800 bg-gray-800 border-[10px] lg:border-[14px] rounded-[2rem] lg:rounded-[2.5rem] h-[330px] lg:h-[480px] w-[170px] lg:w-[240px] shadow-2xl transform hover:scale-105 hover:rotate-2 transition-all duration-700"
             >
+              <!-- Dynamic Island -->
               <div
-                class="w-full h-full bg-white rounded-[2.5rem] overflow-hidden relative"
+                class="w-[85px] lg:w-[120px] h-[14px] lg:h-[18px] bg-gray-800 top-0 rounded-b-[1rem] left-1/2 -translate-x-1/2 absolute"
+              ></div>
+              <!-- Boutons volume -->
+              <div
+                class="h-[25px] lg:h-[35px] w-[2px] lg:w-[3px] bg-gray-800 absolute -start-[12px] lg:-start-[17px] top-[70px] lg:top-[100px] rounded-s-lg"
+              ></div>
+              <div
+                class="h-[25px] lg:h-[35px] w-[2px] lg:w-[3px] bg-gray-800 absolute -start-[12px] lg:-start-[17px] top-[100px] lg:top-[140px] rounded-s-lg"
+              ></div>
+              <!-- Bouton power -->
+              <div
+                class="h-[35px] lg:h-[50px] w-[2px] lg:w-[3px] bg-gray-800 absolute -end-[12px] lg:-end-[17px] top-[80px] lg:top-[115px] rounded-e-lg"
+              ></div>
+              <!-- Écran -->
+              <div
+                class="rounded-[1.5rem] lg:rounded-[2rem] overflow-hidden w-[150px] lg:w-[212px] h-[310px] lg:h-[452px] bg-white"
               >
-                <div
-                  class="bg-gray-100 h-6 lg:h-8 flex items-center justify-between px-2 lg:px-4 text-xs font-medium"
-                >
-                  <span>9:41</span>
-                  <div class="flex items-center space-x-1">
-                    <div
-                      class="w-4 lg:w-6 h-2 lg:h-3 border border-gray-800 rounded-sm"
-                    >
-                      <div
-                        class="w-3 lg:w-4 h-1 lg:h-1.5 bg-green-500 rounded-sm m-0.5"
-                      ></div>
-                    </div>
-                  </div>
-                </div>
                 <img
                   src="./assets/capture-main.png"
-                  alt="app"
                   class="w-full h-full object-cover"
+                  alt="CohaLinkk App"
                 />
               </div>
             </div>
@@ -681,18 +683,34 @@
             </div>
           </div>
 
-          <!-- Téléphone -->
+          <!-- iPhone -->
           <div class="flex justify-center">
             <div
-              class="phone-hover w-48 lg:w-64 h-[350px] lg:h-[450px] bg-gray-900 rounded-[3rem] p-2 lg:p-3 shadow-2xl transform hover:scale-105 hover:rotate-2 transition-all duration-700"
+              class="relative mx-auto border-gray-800 bg-gray-800 border-[10px] lg:border-[14px] rounded-[2rem] lg:rounded-[2.5rem] h-[330px] lg:h-[430px] w-[170px] lg:w-[230px] shadow-2xl transform hover:scale-105 hover:rotate-2 transition-all duration-700"
             >
+              <!-- Dynamic Island -->
               <div
-                class="w-full h-full bg-white rounded-[2.5rem] overflow-hidden"
+                class="w-[85px] lg:w-[115px] h-[14px] lg:h-[18px] bg-gray-800 top-0 rounded-b-[1rem] left-1/2 -translate-x-1/2 absolute"
+              ></div>
+              <!-- Boutons volume -->
+              <div
+                class="h-[25px] lg:h-[32px] w-[2px] lg:w-[3px] bg-gray-800 absolute -start-[12px] lg:-start-[17px] top-[70px] lg:top-[90px] rounded-s-lg"
+              ></div>
+              <div
+                class="h-[25px] lg:h-[32px] w-[2px] lg:w-[3px] bg-gray-800 absolute -start-[12px] lg:-start-[17px] top-[100px] lg:top-[125px] rounded-s-lg"
+              ></div>
+              <!-- Bouton power -->
+              <div
+                class="h-[35px] lg:h-[45px] w-[2px] lg:w-[3px] bg-gray-800 absolute -end-[12px] lg:-end-[17px] top-[80px] lg:top-[105px] rounded-e-lg"
+              ></div>
+              <!-- Écran -->
+              <div
+                class="rounded-[1.5rem] lg:rounded-[2rem] overflow-hidden w-[150px] lg:w-[202px] h-[310px] lg:h-[402px] bg-white"
               >
                 <img
                   src="./assets/capture-main.png"
-                  alt="app"
                   class="w-full h-full object-cover"
+                  alt="CohaLinkk App"
                 />
               </div>
             </div>
@@ -1041,42 +1059,38 @@
     </section>
 
     <!-- dev : badge sm/md/lg... tailwind en bas a gauche de l'écran -->
+    <!-- 
     <div class="fixed bottom-4 left-4 z-50">
-      <!-- Badge pour mobile (< 640px) -->
       <div class="bg-red-500 text-white px-3 py-1 rounded-full block sm:hidden">
         <p class="text-xs font-semibold">XS</p>
       </div>
-      <!-- Badge pour sm (640px - 767px) -->
       <div
         class="bg-orange-500 text-white px-3 py-1 rounded-full hidden sm:block md:hidden"
       >
         <p class="text-xs font-semibold">SM</p>
       </div>
-      <!-- Badge pour md (768px - 1023px) -->
       <div
         class="bg-yellow-500 text-white px-3 py-1 rounded-full hidden md:block lg:hidden"
       >
         <p class="text-xs font-semibold">MD</p>
       </div>
-      <!-- Badge pour lg (1024px - 1279px) -->
       <div
         class="bg-green-500 text-white px-3 py-1 rounded-full hidden lg:block xl:hidden"
       >
         <p class="text-xs font-semibold">LG</p>
       </div>
-      <!-- Badge pour xl (1280px - 1535px) -->
       <div
         class="bg-blue-500 text-white px-3 py-1 rounded-full hidden xl:block 2xl:hidden"
       >
         <p class="text-xs font-semibold">XL</p>
       </div>
-      <!-- Badge pour 2xl (≥ 1536px) -->
       <div
         class="bg-purple-500 text-white px-3 py-1 rounded-full hidden 2xl:block"
       >
         <p class="text-xs font-semibold">2XL</p>
       </div>
     </div>
+    -->
 
     <!-- Footer -->
     <section class="py-12 lg:py-20 bg-gray-50">
@@ -1122,14 +1136,7 @@
         animation: floatBlob2 7s ease-in-out infinite;
       }
 
-      .phone-hover {
-        transition: all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      }
-
-      .phone-hover:hover {
-        transform: rotate(2deg) scale(1.05) !important;
-        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25) !important;
-      }
+      /* Styles iPhone modernes supprimés - remplacés par Flowbite */
 
       /* Révélations au scroll */
       .reveal-section {
