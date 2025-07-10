@@ -637,12 +637,12 @@
 
         <!-- Features carousel -->
         <div
-          class="relative"
-          style="overflow: hidden; margin: 0 -20px; padding: 0 20px"
+          class="relative overflow-x-auto lg:overflow-hidden"
+          style="margin: 0 -20px; padding: 0 20px"
         >
           <div
             id="carousel-container"
-            class="flex gap-6 transition-transform duration-300 ease-in-out px-4 lg:px-4 scrollbar-hide lg:scrollbar-auto"
+            class="flex gap-6 transition-transform duration-300 ease-in-out px-4 lg:px-4 overflow-x-auto lg:overflow-visible scrollbar-hide lg:scrollbar-auto"
             style="
               transform: translateX(0px);
               scroll-behavior: smooth;
@@ -947,18 +947,18 @@
           >
             <!-- Card 1 -->
             <div
-              class="testimonial-card bg-cover bg-center bg-no-repeat rounded-3xl py-12 lg:py-16 min-w-[300px] sm:min-w-[400px] lg:min-w-[700px] xl:min-w-[800px] min-h-[400px] lg:min-h-[500px] hover:scale-105 transition-transform duration-500"
+              class="testimonial-card bg-cover bg-center bg-no-repeat rounded-3xl py-8 lg:py-16 min-w-[85vw] sm:min-w-[400px] lg:min-w-[700px] xl:min-w-[800px] min-h-[250px] lg:min-h-[500px] transition-transform duration-500"
               style="
                 background-image: url('./assets/card1.png');
                 scroll-snap-align: center;
               "
             >
               <div
-                class="p-6 lg:p-8 xl:p-12 flex items-center justify-end h-full"
+                class="p-4 lg:p-8 xl:p-12 flex items-center justify-end h-full"
               >
                 <div class="w-4/5 lg:w-3/5">
                   <p
-                    class="text-lg sm:text-xl xl:text-2xl mb-4 font-bold italic text-white leading-relaxed"
+                    class="text-sm sm:text-lg xl:text-2xl mb-2 lg:mb-4 font-bold italic text-white leading-tight lg:leading-relaxed"
                   >
                     "Depuis l'âge de 20 ans, je vis en colocation. Globalement,
                     j'en ai gardé d'excellents souvenirs malgré quelques
@@ -974,18 +974,18 @@
 
             <!-- Card 2 -->
             <div
-              class="testimonial-card bg-cover bg-center bg-no-repeat rounded-3xl py-12 lg:py-16 min-w-[300px] sm:min-w-[400px] lg:min-w-[700px] xl:min-w-[800px] min-h-[400px] lg:min-h-[500px] hover:scale-105 transition-transform duration-500"
+              class="testimonial-card bg-cover bg-center bg-no-repeat rounded-3xl py-8 lg:py-16 min-w-[85vw] sm:min-w-[400px] lg:min-w-[700px] xl:min-w-[800px] min-h-[250px] lg:min-h-[500px] transition-transform duration-500"
               style="
                 background-image: url('./assets/card2.png');
                 scroll-snap-align: center;
               "
             >
               <div
-                class="p-6 lg:p-8 xl:p-12 flex items-center justify-end h-full"
+                class="p-4 lg:p-8 xl:p-12 flex items-center justify-end h-full"
               >
                 <div class="w-4/5 lg:w-3/5">
                   <p
-                    class="text-lg sm:text-xl xl:text-2xl mb-4 font-bold italic text-white leading-relaxed"
+                    class="text-sm sm:text-lg xl:text-2xl mb-2 lg:mb-4 font-bold italic text-white leading-tight lg:leading-relaxed"
                   >
                     "Je suis une personne qui voyage beaucoup et qui adore vivre
                     en coloc avec des gens de tous âges. Ça met de la vie, et
@@ -1000,18 +1000,18 @@
 
             <!-- Card 3 -->
             <div
-              class="testimonial-card bg-cover bg-center bg-no-repeat rounded-3xl py-12 lg:py-16 min-w-[300px] sm:min-w-[400px] lg:min-w-[700px] xl:min-w-[800px] min-h-[400px] lg:min-h-[500px] hover:scale-105 transition-transform duration-500"
+              class="testimonial-card bg-cover bg-center bg-no-repeat rounded-3xl py-8 lg:py-16 min-w-[85vw] sm:min-w-[400px] lg:min-w-[700px] xl:min-w-[800px] min-h-[250px] lg:min-h-[500px] transition-transform duration-500"
               style="
                 background-image: url('./assets/card3.png');
                 scroll-snap-align: center;
               "
             >
               <div
-                class="p-6 lg:p-8 xl:p-12 flex items-center justify-end h-full"
+                class="p-4 lg:p-8 xl:p-12 flex items-center justify-end h-full"
               >
                 <div class="w-4/5 lg:w-3/5">
                   <p
-                    class="text-lg sm:text-xl xl:text-2xl mb-4 font-bold italic text-white leading-relaxed"
+                    class="text-sm sm:text-lg xl:text-2xl mb-2 lg:mb-4 font-bold italic text-white leading-tight lg:leading-relaxed"
                   >
                     "Après 4 ans passé en colocation, je sais à quel point la
                     recherche du bon colocataire peut devenir un vrai parcours
@@ -1393,8 +1393,8 @@
 
       @media (max-width: 768px) {
         #testimonials-scroll-container {
-          padding-left: calc(50vw - 300px);
-          padding-right: calc(50vw - 300px);
+          padding-left: calc(50vw - 42.5vw);
+          padding-right: calc(50vw - 42.5vw);
         }
       }
     </style>
@@ -1645,7 +1645,7 @@
           });
         });
 
-        // Carousel simple
+        // Carousel - uniquement pour desktop (lg et plus)
         const carousel = document.getElementById("carousel-container");
         const prevBtn = document.getElementById("carousel-prev");
         const nextBtn = document.getElementById("carousel-next");
@@ -1654,71 +1654,65 @@
         const totalCards = 4;
 
         function updateCarousel() {
-          let cardWidth, cardsVisible;
-
+          // Seulement activer le contrôle par boutons sur desktop
           if (window.innerWidth >= 1024) {
-            cardWidth = 424; // 400px + 24px gap
-            cardsVisible = 2;
-          } else if (window.innerWidth >= 640) {
-            cardWidth = 344; // 320px + 24px gap
-            cardsVisible = 1;
+            let cardWidth = 424; // 400px + 24px gap
+            let cardsVisible = 2;
+
+            const maxIndex = totalCards - cardsVisible;
+
+            // S'assurer que currentIndex ne dépasse pas le maximum
+            if (currentIndex > maxIndex) {
+              currentIndex = maxIndex;
+            }
+
+            const translateX = -(currentIndex * cardWidth);
+            carousel.style.transform = `translateX(${translateX}px)`;
+
+            // Mettre à jour l'état des boutons
+            prevBtn.disabled = currentIndex === 0;
+            nextBtn.disabled = currentIndex >= maxIndex;
+
+            // Ajouter les styles visuels pour les boutons désactivés
+            if (prevBtn.disabled) {
+              prevBtn.style.opacity = "0.5";
+              prevBtn.style.cursor = "not-allowed";
+            } else {
+              prevBtn.style.opacity = "1";
+              prevBtn.style.cursor = "pointer";
+            }
+
+            if (nextBtn.disabled) {
+              nextBtn.style.opacity = "0.5";
+              nextBtn.style.cursor = "not-allowed";
+            } else {
+              nextBtn.style.opacity = "1";
+              nextBtn.style.cursor = "pointer";
+            }
           } else {
-            cardWidth = 304; // 280px + 24px gap
-            cardsVisible = 1;
-          }
-
-          const maxIndex = totalCards - cardsVisible;
-
-          // S'assurer que currentIndex ne dépasse pas le maximum
-          if (currentIndex > maxIndex) {
-            currentIndex = maxIndex;
-          }
-
-          const translateX = -(currentIndex * cardWidth);
-          carousel.style.transform = `translateX(${translateX}px)`;
-
-          // Mettre à jour l'état des boutons
-          prevBtn.disabled = currentIndex === 0;
-          nextBtn.disabled = currentIndex >= maxIndex;
-
-          // Ajouter les styles visuels pour les boutons désactivés
-          if (prevBtn.disabled) {
-            prevBtn.style.opacity = "0.5";
-            prevBtn.style.cursor = "not-allowed";
-          } else {
-            prevBtn.style.opacity = "1";
-            prevBtn.style.cursor = "pointer";
-          }
-
-          if (nextBtn.disabled) {
-            nextBtn.style.opacity = "0.5";
-            nextBtn.style.cursor = "not-allowed";
-          } else {
-            nextBtn.style.opacity = "1";
-            nextBtn.style.cursor = "pointer";
+            // Sur mobile/tablette, réinitialiser le transform pour permettre le scroll naturel
+            carousel.style.transform = "translateX(0px)";
+            currentIndex = 0;
           }
         }
 
+        // Event listeners pour les boutons (seulement actifs sur desktop)
         prevBtn.addEventListener("click", () => {
-          if (currentIndex > 0) {
+          if (window.innerWidth >= 1024 && currentIndex > 0) {
             currentIndex--;
             updateCarousel();
           }
         });
 
         nextBtn.addEventListener("click", () => {
-          let cardsVisible;
           if (window.innerWidth >= 1024) {
-            cardsVisible = 2;
-          } else {
-            cardsVisible = 1;
-          }
+            let cardsVisible = 2;
+            const maxIndex = totalCards - cardsVisible;
 
-          const maxIndex = totalCards - cardsVisible;
-
-          if (currentIndex < maxIndex) {
-            currentIndex++;
-            updateCarousel();
+            if (currentIndex < maxIndex) {
+              currentIndex++;
+              updateCarousel();
+            }
           }
         });
 
@@ -1744,7 +1738,8 @@
             } else if (window.innerWidth >= 640) {
               cardWidth = 400;
             } else {
-              cardWidth = 300;
+              // 85vw width for mobile
+              cardWidth = window.innerWidth * 0.85;
             }
 
             const gap = 32;
