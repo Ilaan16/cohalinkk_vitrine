@@ -1228,7 +1228,7 @@
                 <div class="grid grid-cols-2 gap-4">
                   <div>
                     <label class="block text-sm font-medium text-gray-700 mb-2"
-                      >Prénom</label
+                      >Prénom <span class="text-red-500">*</span></label
                     >
                     <input
                       type="text"
@@ -1240,7 +1240,7 @@
                   </div>
                   <div>
                     <label class="block text-sm font-medium text-gray-700 mb-2"
-                      >Nom</label
+                      >Nom <span class="text-red-500">*</span></label
                     >
                     <input
                       type="text"
@@ -1255,7 +1255,7 @@
                 <!-- Email -->
                 <div>
                   <label class="block text-sm font-medium text-gray-700 mb-2"
-                    >Email</label
+                    >Email <span class="text-red-500">*</span></label
                   >
                   <input
                     type="email"
@@ -1266,18 +1266,40 @@
                   />
                 </div>
 
+                <!-- Téléphone -->
+                <div>
+                  <label class="block text-sm font-medium text-gray-700 mb-2"
+                    >Téléphone</label
+                  >
+                  <input
+                    type="tel"
+                    name="telephone"
+                    placeholder="06 12 34 56 78"
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                  />
+                </div>
+
                 <!-- Message -->
                 <div>
                   <label class="block text-sm font-medium text-gray-700 mb-2"
-                    >Message</label
+                    >Message <span class="text-red-500">*</span></label
                   >
-                  <textarea
-                    name="message"
-                    rows="5"
-                    placeholder="Laissez-nous un message..."
-                    required
-                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 resize-none"
-                  ></textarea>
+                  <div class="relative">
+                    <textarea
+                      name="message"
+                      rows="5"
+                      placeholder="Laissez-nous un message..."
+                      required
+                      minlength="20"
+                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 resize-none"
+                      id="message-textarea"
+                    ></textarea>
+                    <div
+                      class="absolute bottom-2 right-2 text-xs text-gray-400"
+                    >
+                      <span id="message-counter">0</span>/20 caractères minimum
+                    </div>
+                  </div>
                 </div>
 
                 <!-- Checkbox -->
@@ -1545,6 +1567,24 @@
 
     <script>
       document.addEventListener("DOMContentLoaded", function () {
+        // Compteur de caractères pour le message
+        const messageTextarea = document.getElementById("message-textarea");
+        const messageCounter = document.getElementById("message-counter");
+
+        if (messageTextarea && messageCounter) {
+          messageTextarea.addEventListener("input", function () {
+            const length = this.value.length;
+            messageCounter.textContent = length;
+
+            if (length >= 20) {
+              messageCounter.classList.remove("text-red-400");
+              messageCounter.classList.add("text-green-500");
+            } else {
+              messageCounter.classList.remove("text-green-500");
+              messageCounter.classList.add("text-red-400");
+            }
+          });
+        }
         // Animation d'entrée du hero
         const heroTimeline = anime.timeline({
           easing: "easeOutExpo",
