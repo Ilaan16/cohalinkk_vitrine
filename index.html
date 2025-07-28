@@ -1113,9 +1113,10 @@
             </div>
 
             <!-- Formulaire de contact -->
+            <!-- action="https://formspree.io/f/mjkrqpgd" -->
             <div>
               <form
-                action="https://formspree.io/f/mjkrqpgd"
+                action="https://cohalinkk.app.n8n.cloud/webhook/8e97f7ec-ed9e-4300-8c91-67155c823a6a"
                 method="POST"
                 class="space-y-6 form-animation"
               >
@@ -1649,6 +1650,8 @@
         const originalButtonText = submitButton.textContent;
 
         form.addEventListener("submit", function (e) {
+          e.preventDefault(); // Empêcher la soumission normale du formulaire
+
           // Animation du bouton
           anime({
             targets: submitButton,
@@ -1665,12 +1668,37 @@
           confirmationMessage.classList.add("hidden");
           errorMessage.classList.add("hidden");
 
-          // Simuler un délai pour l'état de chargement
-          setTimeout(() => {
-            // Réinitialiser le bouton
-            submitButton.textContent = originalButtonText;
-            submitButton.disabled = false;
-          }, 2000);
+          // Récupérer les données du formulaire
+          const formData = new FormData(form);
+
+          // Envoyer les données vers n8n
+          fetch(
+            "https://cohalinkk.app.n8n.cloud/webhook/8e97f7ec-ed9e-4300-8c91-67155c823a6a",
+            {
+              method: "POST",
+              body: formData,
+            }
+          )
+            .then((response) => {
+              if (response.ok) {
+                // Succès
+                confirmationMessage.classList.remove("hidden");
+                form.reset();
+              } else {
+                // Erreur
+                errorMessage.classList.remove("hidden");
+              }
+            })
+            .catch((error) => {
+              // Erreur réseau
+              errorMessage.classList.remove("hidden");
+              console.error("Erreur:", error);
+            })
+            .finally(() => {
+              // Réinitialiser le bouton
+              submitButton.textContent = originalButtonText;
+              submitButton.disabled = false;
+            });
         });
 
         // Gestion des paramètres URL
