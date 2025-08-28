@@ -9,6 +9,52 @@
       name="description"
       content="CohaLinkk - Réinvente la colocation pour tous. Une app simple, sûre et efficace pour mettre en relation colocataires compatibles et propriétaires responsables."
     />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://cohalinkk.fr/" />
+    <meta
+      property="og:title"
+      content="CohaLinkk - Réinvente la colocation pour tous"
+    />
+    <meta
+      property="og:description"
+      content="Une app simple, sûre et efficace pour mettre en relation colocataires compatibles et propriétaires responsables."
+    />
+    <meta
+      property="og:image"
+      content="https://cohalinkk.fr/assets/images/logo_cohalinkk_bleu.png"
+    />
+    <meta property="og:site_name" content="CohaLinkk" />
+    <meta property="og:locale" content="fr_FR" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://cohalinkk.fr/" />
+    <meta
+      property="twitter:title"
+      content="CohaLinkk - Réinvente la colocation pour tous"
+    />
+    <meta
+      property="twitter:description"
+      content="Une app simple, sûre et efficace pour mettre en relation colocataires compatibles et propriétaires responsables."
+    />
+    <meta
+      property="twitter:image"
+      content="https://cohalinkk.fr/assets/images/logo_cohalinkk_bleu.png"
+    />
+
+    <!-- Autres métadonnées SEO -->
+    <meta
+      name="keywords"
+      content="colocation, logement, colocataire, propriétaire, app mobile, location, partage, logement étudiant, colocation responsable"
+    />
+    <meta name="author" content="CohaLinkk" />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="fr" />
+    <meta name="geo.region" content="FR" />
+    <meta name="geo.placename" content="France" />
+
     <title>CohaLinkk - Réinvente la colocation pour tous</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -16,6 +62,28 @@
       href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Préchargement des ressources critiques -->
+    <link rel="preload" href="curved-badge.css" as="style" />
+    <link
+      rel="preload"
+      href="./assets/images/logo_cohalinkk_bleu.png"
+      as="image"
+    />
+
+    <!-- Optimisation des polices -->
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript
+      ><link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap"
+    /></noscript>
+
     <link rel="stylesheet" href="curved-badge.css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -30,6 +98,39 @@
           },
         },
       };
+    </script>
+
+    <!-- Structured Data JSON-LD -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "CohaLinkk",
+        "url": "https://cohalinkk.fr",
+        "logo": "https://cohalinkk.fr/assets/images/logo_cohalinkk_bleu.png",
+        "description": "CohaLinkk réinvente la colocation pour tous. Une app simple, sûre et efficace pour mettre en relation colocataires compatibles et propriétaires responsables.",
+        "foundingDate": "2024",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "FR"
+        },
+        "sameAs": [
+          "https://www.linkedin.com/company/cohalinkk/",
+          "https://www.instagram.com/cohalinkk/",
+          "https://www.facebook.com/profile.php?id=61577775392202",
+          "https://www.tiktok.com/@cohalinkk"
+        ],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "customer service",
+          "availableLanguage": "French"
+        },
+        "offers": {
+          "@type": "Offer",
+          "description": "Application de colocation avec matching intelligent et messagerie sécurisée",
+          "category": "Application mobile de colocation"
+        }
+      }
     </script>
   </head>
   <body class="font-sans bg-gray-50">
@@ -527,7 +628,8 @@
                   <img
                     src="./assets/capture-main.png"
                     class="w-full h-full object-cover"
-                    alt="CohaLinkk App"
+                    alt="Application mobile CohaLinkk - Interface de colocation avec matching intelligent"
+                    loading="lazy"
                   />
                 </div>
               </div>
@@ -908,7 +1010,8 @@
                   <img
                     src="./assets/choice-chambre.png"
                     class="w-full h-full object-cover"
-                    alt="CohaLinkk App Choice"
+                    alt="Interface de sélection de chambre dans l'application CohaLinkk"
+                    loading="lazy"
                   />
                 </div>
               </div>
