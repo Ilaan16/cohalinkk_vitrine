@@ -735,51 +735,55 @@
         <!-- Container du carousel -->
         <div class="carousel-container flex items-center">
           <!-- Premier set de logos -->
-          <div class="carousel-track flex items-center space-x-8 lg:space-x-16">
+          <div
+            class="carousel-track flex items-center space-x-4 sm:space-x-8 lg:space-x-16"
+          >
             <div class="carousel-item flex-shrink-0">
               <img
                 src="./assets/partners/ouillade.png"
                 alt="Ouillade"
-                class="h-12 lg:h-16 w-auto opacity-70 hover:opacity-100 transition-opacity duration-300"
+                class="h-8 sm:h-12 lg:h-16 w-auto opacity-70 hover:opacity-100 transition-opacity duration-300"
               />
             </div>
             <div class="carousel-item flex-shrink-0">
               <img
                 src="./assets/partners/lindependant.png"
                 alt="L'independant"
-                class="h-12 lg:h-16 w-auto opacity-70 hover:opacity-100 transition-opacity duration-300"
+                class="h-8 sm:h-12 lg:h-16 w-auto opacity-70 hover:opacity-100 transition-opacity duration-300"
               />
             </div>
             <!-- <div class="carousel-item flex-shrink-0">
-              <img
-                src="./assets/partners/le-figaro.svg"
-                alt="Le Figaro"
-                class="h-12 lg:h-16 w-auto opacity-70 hover:opacity-100 transition-opacity duration-300"
+              <img 
+                src="./assets/partners/le-figaro.svg" 
+                alt="Le Figaro" 
+                class="h-8 sm:h-12 lg:h-16 w-auto opacity-70 hover:opacity-100 transition-opacity duration-300"
               />
             </div> -->
           </div>
 
           <!-- Deuxième set de logos (pour l'effet de continuité) -->
-          <div class="carousel-track flex items-center space-x-8 lg:space-x-16">
+          <div
+            class="carousel-track flex items-center space-x-4 sm:space-x-8 lg:space-x-16"
+          >
             <div class="carousel-item flex-shrink-0">
               <img
                 src="./assets/partners/ouillade.png"
                 alt="Ouillade"
-                class="h-12 lg:h-16 w-auto opacity-70 hover:opacity-100 transition-opacity duration-300"
+                class="h-8 sm:h-12 lg:h-16 w-auto opacity-70 hover:opacity-100 transition-opacity duration-300"
               />
             </div>
             <div class="carousel-item flex-shrink-0">
               <img
                 src="./assets/partners/lindependant.png"
                 alt="L'independant"
-                class="h-12 lg:h-16 w-auto opacity-70 hover:opacity-100 transition-opacity duration-300"
+                class="h-8 sm:h-12 lg:h-16 w-auto opacity-70 hover:opacity-100 transition-opacity duration-300"
               />
             </div>
             <!-- <div class="carousel-item flex-shrink-0">
-              <img
-                src="./assets/partners/le-figaro.svg"
-                alt="Le Figaro"
-                class="h-12 lg:h-16 w-auto opacity-70 hover:opacity-100 transition-opacity duration-300"
+              <img 
+                src="./assets/partners/le-figaro.svg" 
+                alt="Le Figaro" 
+                class="h-8 sm:h-12 lg:h-16 w-auto opacity-70 hover:opacity-100 transition-opacity duration-300"
               />
             </div> -->
           </div>
@@ -1719,10 +1723,44 @@
         animation-play-state: paused;
       }
 
-      /* Responsive adjustments */
+      /* Responsive adjustments pour mobile */
       @media (max-width: 768px) {
         .carousel-container {
           animation-duration: 15s;
+          width: calc(200% + 1rem);
+        }
+
+        .carousel-track {
+          min-width: 50%;
+        }
+
+        .carousel-item {
+          padding: 0 0.5rem;
+          min-width: 120px; /* Largeur minimale pour éviter le chevauchement */
+        }
+
+        .carousel-item img {
+          height: 2rem; /* 32px sur mobile */
+          width: auto;
+          max-width: 100px; /* Largeur maximale pour éviter le débordement */
+        }
+      }
+
+      /* Ajustements pour très petits écrans */
+      @media (max-width: 480px) {
+        .carousel-container {
+          animation-duration: 12s;
+          width: calc(200% + 0.5rem);
+        }
+
+        .carousel-item {
+          padding: 0 0.25rem;
+          min-width: 100px;
+        }
+
+        .carousel-item img {
+          height: 1.5rem; /* 24px sur très petits écrans */
+          max-width: 80px;
         }
       }
     </style>
