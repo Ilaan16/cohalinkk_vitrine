@@ -709,25 +709,79 @@
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-            <!-- Logo Ouillade -->
-            <div
-              class="partner-card relative transform hover:scale-110 transition-all duration-300"
+    <!-- Section "ils parlent de nous" -->
+    <section class="py-12 lg:py-20 bg-white reveal-section">
+      <div class="container mx-auto px-4">
+        <!-- Titre principal avec mots colorés -->
+        <div class="text-center mb-8 lg:mb-12">
+          <div class="flex items-center justify-center gap-4">
+            <span class="text-3xl lg:text-4xl font-semibold text-gray-800"
+              >ILS PARLENT DE</span
             >
-              <div
-                class="w-24 h-24 sm:w-32 sm:h-32 lg:w-40 lg:h-40 rounded-3xl p-1 bg-gradient-to-r from-green-400 via-blue-900 via-blue-800 to-yellow-400 hover:shadow-2xl transition-all duration-300"
-              >
-                <div
-                  class="w-full h-full bg-white rounded-3xl flex items-center justify-center p-4 lg:p-6"
-                >
-                  <img
-                    src="./assets/partners/ouillade.png"
-                    alt="Ouillade"
-                    class="w-full h-full object-contain"
-                  />
-                </div>
-              </div>
+            <span class="curved-badge-large orange text-3xl lg:text-4xl">
+              NOUS
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Carousel automatique des logos partenaires -->
+      <div class="relative overflow-hidden">
+        <!-- Container du carousel -->
+        <div class="carousel-container flex items-center">
+          <!-- Premier set de logos -->
+          <div class="carousel-track flex items-center space-x-8 lg:space-x-16">
+            <div class="carousel-item flex-shrink-0">
+              <img
+                src="./assets/partners/ouillade.png"
+                alt="Ouillade"
+                class="h-12 lg:h-16 w-auto opacity-70 hover:opacity-100 transition-opacity duration-300"
+              />
             </div>
+            <div class="carousel-item flex-shrink-0">
+              <img
+                src="./assets/partners/lindependant.png"
+                alt="L'independant"
+                class="h-12 lg:h-16 w-auto opacity-70 hover:opacity-100 transition-opacity duration-300"
+              />
+            </div>
+            <!-- <div class="carousel-item flex-shrink-0">
+              <img
+                src="./assets/partners/le-figaro.svg"
+                alt="Le Figaro"
+                class="h-12 lg:h-16 w-auto opacity-70 hover:opacity-100 transition-opacity duration-300"
+              />
+            </div> -->
+          </div>
+
+          <!-- Deuxième set de logos (pour l'effet de continuité) -->
+          <div class="carousel-track flex items-center space-x-8 lg:space-x-16">
+            <div class="carousel-item flex-shrink-0">
+              <img
+                src="./assets/partners/ouillade.png"
+                alt="Ouillade"
+                class="h-12 lg:h-16 w-auto opacity-70 hover:opacity-100 transition-opacity duration-300"
+              />
+            </div>
+            <div class="carousel-item flex-shrink-0">
+              <img
+                src="./assets/partners/lindependant.png"
+                alt="L'independant"
+                class="h-12 lg:h-16 w-auto opacity-70 hover:opacity-100 transition-opacity duration-300"
+              />
+            </div>
+            <!-- <div class="carousel-item flex-shrink-0">
+              <img
+                src="./assets/partners/le-figaro.svg"
+                alt="Le Figaro"
+                class="h-12 lg:h-16 w-auto opacity-70 hover:opacity-100 transition-opacity duration-300"
+              />
+            </div> -->
           </div>
         </div>
       </div>
@@ -1621,6 +1675,56 @@
           transform: scale(1);
         }
       }
+
+      /* Styles pour le carousel automatique des logos */
+      .carousel-container {
+        animation: scroll 20s linear infinite;
+        width: calc(200% + 2rem);
+      }
+
+      .carousel-track {
+        display: flex;
+        align-items: center;
+        min-width: 50%;
+      }
+
+      .carousel-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 1rem;
+      }
+
+      .carousel-item img {
+        filter: grayscale(100%);
+        transition: all 0.3s ease;
+      }
+
+      .carousel-item:hover img {
+        filter: grayscale(0%);
+        transform: scale(1.1);
+      }
+
+      @keyframes scroll {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+
+      /* Pause sur hover */
+      .carousel-container:hover {
+        animation-play-state: paused;
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .carousel-container {
+          animation-duration: 15s;
+        }
+      }
     </style>
 
     <script>
@@ -1860,6 +1964,34 @@
         if (urlParams.get("success") === "true") {
           confirmationMessage.classList.remove("hidden");
           form.reset();
+        }
+
+        // Animation du carousel des logos partenaires
+        const carouselContainer = document.querySelector(".carousel-container");
+        if (carouselContainer) {
+          // Démarrer l'animation avec un délai
+          setTimeout(() => {
+            carouselContainer.style.animationPlayState = "running";
+          }, 1000);
+
+          // Gestion de la pause sur hover
+          carouselContainer.addEventListener("mouseenter", () => {
+            carouselContainer.style.animationPlayState = "paused";
+          });
+
+          carouselContainer.addEventListener("mouseleave", () => {
+            carouselContainer.style.animationPlayState = "running";
+          });
+
+          // Animation d'entrée du carousel
+          anime({
+            targets: carouselContainer,
+            opacity: [0, 1],
+            translateY: [30, 0],
+            duration: 800,
+            delay: 500,
+            easing: "easeOutExpo",
+          });
         }
       });
     </script>
