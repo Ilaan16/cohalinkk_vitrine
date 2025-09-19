@@ -1011,75 +1011,47 @@
 
       <!-- Carousel automatique des logos partenaires -->
       <div class="relative overflow-hidden">
-        <!-- Container du carousel -->
-        <div class="carousel-container flex items-center">
-          <!-- Premier set de logos -->
-          <div
-            class="carousel-track flex items-center space-x-4 sm:space-x-8 lg:space-x-16"
-          >
-            <div class="carousel-item flex-shrink-0">
-              <img
-                src="./assets/partners/ouillade.png"
-                alt="Ouillade"
-                class="h-8 sm:h-12 lg:h-16 w-auto opacity-70 hover:opacity-100 transition-opacity duration-300"
-              />
-            </div>
-            <div class="carousel-item flex-shrink-0">
-              <img
-                src="./assets/partners/lindependant.png"
-                alt="L'independant"
-                class="h-8 sm:h-12 lg:h-16 w-auto opacity-70 hover:opacity-100 transition-opacity duration-300"
-              />
-            </div>
-            <div class="carousel-item flex-shrink-0">
-              <img
-                src="./assets/partners/le-figaro.svg"
-                alt="Le Figaro"
-                class="h-8 sm:h-12 lg:h-16 w-auto opacity-70 hover:opacity-100 transition-opacity duration-300"
-              />
-            </div>
-            <div class="carousel-item flex-shrink-0">
-              <img
-                src="./assets/partners/le-parisien.png"
-                alt="Le Parisien"
-                class="h-8 sm:h-12 lg:h-16 w-auto opacity-70 hover:opacity-100 transition-opacity duration-300"
-              />
-            </div>
-          </div>
-
-          <!-- Deuxième set de logos (pour l'effet de continuité) -->
-          <div
-            class="carousel-track flex items-center space-x-4 sm:space-x-8 lg:space-x-16"
-          >
-            <div class="carousel-item flex-shrink-0">
-              <img
-                src="./assets/partners/ouillade.png"
-                alt="Ouillade"
-                class="h-8 sm:h-12 lg:h-16 w-auto opacity-70 hover:opacity-100 transition-opacity duration-300"
-              />
-            </div>
-            <div class="carousel-item flex-shrink-0">
-              <img
-                src="./assets/partners/lindependant.png"
-                alt="L'independant"
-                class="h-8 sm:h-12 lg:h-16 w-auto opacity-70 hover:opacity-100 transition-opacity duration-300"
-              />
-            </div>
-            <div class="carousel-item flex-shrink-0">
-              <img
-                src="./assets/partners/le-figaro.svg"
-                alt="Le Figaro"
-                class="h-8 sm:h-12 lg:h-16 w-auto opacity-70 hover:opacity-100 transition-opacity duration-300"
-              />
-            </div>
-            <div class="carousel-item flex-shrink-0">
-              <img
-                src="./assets/partners/le-parisien.png"
-                alt="Le Parisien"
-                class="h-8 sm:h-12 lg:h-16 w-auto opacity-70 hover:opacity-100 transition-opacity duration-300"
-              />
-            </div>
-          </div>
+        <div class="flex animate-scroll">
+          <img
+            src="./assets/partners/ouillade.png"
+            alt="Ouillade"
+            class="h-12 mx-8 flex-shrink-0"
+          />
+          <img
+            src="./assets/partners/lindependant.png"
+            alt="L'independant"
+            class="h-12 mx-8 flex-shrink-0"
+          />
+          <img
+            src="./assets/partners/le-figaro.svg"
+            alt="Le Figaro"
+            class="h-12 mx-8 flex-shrink-0"
+          />
+          <img
+            src="./assets/partners/le-parisien.png"
+            alt="Le Parisien"
+            class="h-12 mx-8 flex-shrink-0"
+          />
+          <img
+            src="./assets/partners/ouillade.png"
+            alt="Ouillade"
+            class="h-12 mx-8 flex-shrink-0"
+          />
+          <img
+            src="./assets/partners/lindependant.png"
+            alt="L'independant"
+            class="h-12 mx-8 flex-shrink-0"
+          />
+          <img
+            src="./assets/partners/le-figaro.svg"
+            alt="Le Figaro"
+            class="h-12 mx-8 flex-shrink-0"
+          />
+          <img
+            src="./assets/partners/le-parisien.png"
+            alt="Le Parisien"
+            class="h-12 mx-8 flex-shrink-0"
+          />
         </div>
       </div>
     </section>
@@ -1994,88 +1966,10 @@
         }
       }
 
-      /* Styles pour le carousel automatique des logos */
-      .carousel-container {
-        animation: scroll 20s linear infinite;
-        width: calc(200% + 2rem);
-      }
-
-      .carousel-track {
-        display: flex;
-        align-items: center;
-        min-width: 50%;
-      }
-
-      .carousel-item {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0 1rem;
-      }
-
-      .carousel-item img {
-        filter: grayscale(100%);
-        transition: all 0.3s ease;
-      }
-
-      .carousel-item:hover img {
-        filter: grayscale(0%);
-        transform: scale(1.1);
-      }
-
-      @keyframes scroll {
-        0% {
-          transform: translateX(0);
-        }
-        100% {
-          transform: translateX(-50%);
-        }
-      }
-
-      /* Pause sur hover */
-      .carousel-container:hover {
-        animation-play-state: paused;
-      }
-
-      /* Responsive adjustments pour mobile */
-      @media (max-width: 768px) {
-        .carousel-container {
-          animation-duration: 15s;
-          width: calc(200% + 1rem);
-        }
-
-        .carousel-track {
-          min-width: 50%;
-        }
-
-        .carousel-item {
-          padding: 0 0.5rem;
-          min-width: 120px; /* Largeur minimale pour éviter le chevauchement */
-        }
-
-        .carousel-item img {
-          height: 2rem; /* 32px sur mobile */
-          width: auto;
-          max-width: 100px; /* Largeur maximale pour éviter le débordement */
-        }
-      }
-
-      /* Ajustements pour très petits écrans */
-      @media (max-width: 480px) {
-        .carousel-container {
-          animation-duration: 12s;
-          width: calc(200% + 0.5rem);
-        }
-
-        .carousel-item {
-          padding: 0 0.25rem;
-          min-width: 100px;
-        }
-
-        .carousel-item img {
-          height: 1.5rem; /* 24px sur très petits écrans */
-          max-width: 80px;
-        }
+      /* Défilement infini avec JavaScript */
+      .animate-scroll {
+        animation: none;
+        width: max-content;
       }
     </style>
 
@@ -2344,6 +2238,41 @@
             delay: 500,
             easing: "easeOutExpo",
           });
+        }
+        // Défilement infini avec JavaScript
+        const infiniteScroll = document.querySelector(".animate-scroll");
+        if (infiniteScroll) {
+          let position = 0;
+          const speed = 0.5; // pixels par frame
+          let isPaused = false;
+
+          function scrollInfinite() {
+            if (!isPaused) {
+              position -= speed;
+              infiniteScroll.style.transform = `translateX(${position}px)`;
+
+              // Reset quand on arrive à la moitié (car on a doublé les logos)
+              if (Math.abs(position) >= infiniteScroll.scrollWidth / 2) {
+                position = 0;
+              }
+            }
+
+            requestAnimationFrame(scrollInfinite);
+          }
+
+          // Gestion de la pause sur hover
+          infiniteScroll.addEventListener("mouseenter", () => {
+            isPaused = true;
+          });
+
+          infiniteScroll.addEventListener("mouseleave", () => {
+            isPaused = false;
+          });
+
+          // Démarrer le défilement infini
+          setTimeout(() => {
+            scrollInfinite();
+          }, 1000);
         }
       });
     </script>
