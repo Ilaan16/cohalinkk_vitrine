@@ -1707,14 +1707,13 @@
                       rows="5"
                       placeholder="Laissez-nous un message..."
                       required
-                      minlength="20"
                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 resize-none"
                       id="message-textarea"
                     ></textarea>
                     <div
                       class="absolute bottom-2 right-2 text-xs text-gray-400"
                     >
-                      <span id="message-counter">0</span>/20 caractères minimum
+                      <span id="message-counter">0</span>/5 mots minimum
                     </div>
                   </div>
                 </div>
@@ -1994,7 +1993,22 @@
     <script>
       // Gestion du formulaire de contact
       document.addEventListener("DOMContentLoaded", function () {
-        // Compteur de caractères pour le message
+        // Fonction pour compter les mots valides (au moins 2 caractères)
+        function countValidWords(text) {
+          // Regex pour extraire les mots (lettres, chiffres, caractères accentués)
+          // Un mot valide doit avoir au moins 2 caractères
+          const words = text
+            .trim()
+            .split(/\s+/)
+            .filter((word) => {
+              // Retirer la ponctuation et garder uniquement les caractères alphanumériques
+              const cleanWord = word.replace(/[^\w\u00C0-\u017F]/g, "");
+              return cleanWord.length >= 2;
+            });
+          return words.length;
+        }
+
+        // Compteur de mots pour le message
         const messageTextarea = document.getElementById("message-textarea");
         const messageCounter = document.getElementById("message-counter");
         const howKnowSelect = document.getElementById("how_know_cohalinkk");
@@ -2005,10 +2019,10 @@
 
         if (messageTextarea && messageCounter) {
           messageTextarea.addEventListener("input", function () {
-            const length = this.value.length;
-            messageCounter.textContent = length;
+            const wordCount = countValidWords(this.value);
+            messageCounter.textContent = wordCount;
 
-            if (length >= 20) {
+            if (wordCount >= 5) {
               messageCounter.classList.remove("text-red-400");
               messageCounter.classList.add("text-green-500");
             } else {
@@ -2175,6 +2189,7 @@
         const errorMessage = document.getElementById("error-message");
         const submitButton = form.querySelector('button[type="submit"]');
         const originalButtonText = submitButton.textContent;
+        const originalErrorMessageContent = errorMessage.innerHTML;
 
         // Gestion de l'option "Autre" pour le champ "Comment avez-vous connu"
         if (howKnowSelect && howKnowOtherWrapper && howKnowOtherInput) {
@@ -2193,6 +2208,32 @@
         form.addEventListener("submit", function (e) {
           e.preventDefault(); // Empêcher la soumission normale du formulaire
 
+          // Validation du nombre de mots dans le message
+          const messageValue = messageTextarea.value.trim();
+          const wordCount = countValidWords(messageValue);
+
+          if (wordCount < 5) {
+            // Afficher un message d'erreur spécifique pour le nombre de mots
+            errorMessage.innerHTML = `
+              <p class="font-semibold">❌ Message trop court</p>
+              <p class="text-sm">
+                Veuillez écrire au moins 5 mots valides (${wordCount}/5 mots).
+              </p>
+            `;
+            errorMessage.classList.remove("hidden");
+
+            // Mettre en évidence le textarea
+            messageTextarea.classList.add("border-red-500");
+            messageTextarea.focus();
+
+            // Retirer la classe après 3 secondes
+            setTimeout(() => {
+              messageTextarea.classList.remove("border-red-500");
+            }, 3000);
+
+            return;
+          }
+
           // Animation du bouton
           anime({
             targets: submitButton,
@@ -2208,6 +2249,8 @@
           // Masquer les messages précédents
           confirmationMessage.classList.add("hidden");
           errorMessage.classList.add("hidden");
+          // Restaurer le message d'erreur par défaut
+          errorMessage.innerHTML = originalErrorMessageContent;
 
           // Récupérer les données du formulaire
           const formData = new FormData(form);
