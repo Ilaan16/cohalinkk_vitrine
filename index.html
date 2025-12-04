@@ -102,6 +102,17 @@
 
     <link rel="stylesheet" href="curved-badge.css" />
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Calendly Popup Widget -->
+    <link
+      href="https://assets.calendly.com/assets/external/widget.css"
+      rel="stylesheet"
+    />
+    <script
+      src="https://assets.calendly.com/assets/external/widget.js"
+      type="text/javascript"
+      async
+    ></script>
     <script>
       tailwind.config = {
         theme: {
@@ -2395,5 +2406,132 @@
         }
       });
     </script>
+
+    <!-- Bouton Calendly flottant -->
+    <style>
+      .calendly-button {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 1000;
+        background: linear-gradient(135deg, #3b5ef7 0%, #2b4ed6 100%);
+        border: none;
+        border-radius: 50px;
+        box-shadow: 0 4px 20px rgba(59, 94, 247, 0.4);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 20px;
+        font-family: inherit;
+        font-weight: 600;
+        color: white;
+        text-decoration: none;
+        animation: pulse 2s infinite;
+      }
+
+      .calendly-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 25px rgba(59, 94, 247, 0.5);
+      }
+
+      .calendly-button:active {
+        transform: translateY(0);
+      }
+
+      .calendly-button-icon {
+        width: 20px;
+        height: 20px;
+        flex-shrink: 0;
+      }
+
+      .calendly-button-text {
+        white-space: nowrap;
+      }
+
+      /* Mobile : bouton léger (icône seule) */
+      @media (max-width: 640px) {
+        .calendly-button {
+          width: 56px;
+          height: 56px;
+          padding: 0;
+          border-radius: 50%;
+          justify-content: center;
+          bottom: 16px;
+          right: 16px;
+        }
+
+        .calendly-button-text {
+          display: none;
+        }
+
+        .calendly-button-icon {
+          width: 24px;
+          height: 24px;
+        }
+      }
+
+      /* Tablette : bouton moyen avec texte court */
+      @media (min-width: 641px) and (max-width: 1024px) {
+        .calendly-button {
+          padding: 14px 18px;
+          font-size: 14px;
+          bottom: 20px;
+          right: 20px;
+        }
+
+        .calendly-button-text {
+          font-size: 14px;
+        }
+      }
+
+      /* Desktop : bouton complet avec texte */
+      @media (min-width: 1025px) {
+        .calendly-button {
+          padding: 16px 24px;
+          font-size: 16px;
+          bottom: 24px;
+          right: 24px;
+        }
+
+        .calendly-button-text {
+          font-size: 16px;
+        }
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          box-shadow: 0 4px 20px rgba(59, 94, 247, 0.4);
+        }
+        50% {
+          box-shadow: 0 4px 25px rgba(59, 94, 247, 0.6);
+        }
+      }
+    </style>
+
+    <button
+      class="calendly-button"
+      onclick="Calendly.initPopupWidget({url: 'https://calendly.com/cohalinkk-marketing/30min?locale=fr'});"
+      aria-label="Prendre rendez-vous"
+    >
+      <svg
+        class="calendly-button-icon"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+        <line x1="16" y1="2" x2="16" y2="6"></line>
+        <line x1="8" y1="2" x2="8" y2="6"></line>
+        <line x1="3" y1="10" x2="21" y2="10"></line>
+      </svg>
+      <span class="calendly-button-text">Prendre rendez-vous</span>
+    </button>
   </body>
 </html>
